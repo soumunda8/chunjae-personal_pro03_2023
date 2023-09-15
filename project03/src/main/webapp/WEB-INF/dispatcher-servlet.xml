@@ -13,6 +13,7 @@
     <resources mapping="/resources/**" location="/resources/" />
     <resources mapping="/data/**" location="/data/" />
     <resources mapping="/notice/**" location="/WEB-INF/view/notice" />
+    <resources mapping="/member/**" location="/WEB-INF/view/member" />
 
     <!-- 컨트롤러에서 던진 URL : /notice/noticeList -->
     <!-- 실제 존재하는 URL : /WEB-INF/views/notice/noticeList.jsp -->

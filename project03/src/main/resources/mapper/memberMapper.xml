@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+    <select id="memberAllList" resultType="kr.co.teaspoon.dto.Member">
+        select * from member where id not in ('admin')
+    </select>
+
+    <select id="memberDetail" resultType="kr.co.teaspoon.dto.Member">
+        select * from member where id = #{id}
+    </select>
+
+    <insert id="memberInsert">
+        insert into member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{addr1}, #{addr2}, #{postcode}, default, #{birth}, default, default, default, #{grade});
+    </insert>
+</mapper>
