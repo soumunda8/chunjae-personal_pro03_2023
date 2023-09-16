@@ -46,29 +46,24 @@
 <!-- 파비콘 설정 :32X32 자주 사용 -->
 <!-- 16X16, 24X24, 32X32, 48X48, 64X64, 96X96, 114X114, 128X128, 256X256 등을 활용 -->
 <!-- 표준 파비콘 -->
-<link rel="shortcut icon" href="${path }/images/logo.ico">
+<link rel="shortcut icon" href="${path }/resources/image/common/logo.ico">
 <!-- 애플 계열 모바일 -->
-<link rel="apple-touch-ico-precomposed" href="${path }/images/logo64.png">
+<link rel="apple-touch-ico-precomposed" href="${path }/resources/image/common/logo_64.png">
 <!-- IE 계열 브라우저 -->
 <meta name="msapplication-TileColor" content="#fff">
-<meta name="msapplication-TileImage" content="${path }/images/logo48.png">
+<meta name="msapplication-TileImage" content="${path }/resources/image/common/logo48.png">
 
 <!-- 파이어폭스, 오페라 또는 구형 크롬/사파리 -->
-<link rel="icon" href="${path }/images/logo16.png" sizes="16x16">
-<link rel="icon" href="${path }/images/logo32.png" sizes="32x32">
-<link rel="icon" href="${path }/images/logo48.png" sizes="48x48">
-<link rel="icon" href="${path }/images/logo64.png" sizes="64x64">
+<link rel="icon" href="${path }/resources/image/common/logo_32.png" sizes="32x32">
+<link rel="icon" href="${path }/resources/image/common/logo_48.png" sizes="48x48">
+<link rel="icon" href="${path }/resources/image/common/logo_64.png" sizes="64x64">
 
 <!-- 폰트 -->
 
 <script src="${path }/resources/js/jquery-3.7.1.js"></script>
-
 <link rel="stylesheet" href="${path }/resources/css/normalize.css">
 <link rel="stylesheet" href="${path }/resources/css/bulma.css">
-<style>
-    /* 공통 사용자 정의 스타일 */
-    #ft {border-top:3px solid #ececec;}
-</style>
+<link rel="stylesheet" href="${path }/resources/css/common.css">
 
 <script>
     document.oncontextmenu = function () {return false;}

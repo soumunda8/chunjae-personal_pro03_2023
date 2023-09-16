@@ -6,11 +6,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <jsp:include page="./include/head.jsp" />
-    <title>${title }</title>
+    <jsp:include page="./layout/head.jsp" />
+    <title>티스푼</title>
+    <link rel="stylesheet" href="${path }/resources/css/main.css">
 </head>
 <body>
-<jsp:include page="include/headerMain.jsp" />
+<jsp:include page="./layout/header.jsp" />
+    <section class="hero is-large is-info">
+        <div class="container is-fullhd">
+            <div class="hero-body">
+                <p class="title">${title }</p>
+                <p class="subtitle">${titleSub }</p>
+            </div>
+        </div>
+    </section>
     <div class="container is-fullhd">
         <h2>${title }</h2>
         <div class="contents">
@@ -20,6 +29,6 @@
         </div>
     </div>
 </div>
-<jsp:include page="./include/footer.jsp" />
+<jsp:include page="./layout/footer.jsp" />
 </body>
 </html>

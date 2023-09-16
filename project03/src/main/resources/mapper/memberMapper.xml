@@ -4,7 +4,48 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
     <select id="memberAllList" resultType="kr.co.teaspoon.dto.Member">
-        select * from member where id not in ('admin')
+        <![CDATA[
+        select * from member
+        ]]>
+        <where>
+            id not in ('admin')
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'id'.toString()">
+                        and id LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'name'.toString()">
+                        and name LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by regDate asc LIMIT #{postStart}, #{postCount}
+        ]]>
+    </select>
+
+    <select id="memberAllListCount" resultType="integer">
+        <![CDATA[
+        select count(*) from member
+        ]]>
+        <where>
+            id not in ('admin')
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'id'.toString()">
+                        and id LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'name'.toString()">
+                        and name LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+    </select>
+
+    <select id="memberCanLog" resultType="kr.co.teaspoon.dto.Member">
+        select * from member where id = #{id} and useYn = true
     </select>
 
     <select id="memberDetail" resultType="kr.co.teaspoon.dto.Member">
@@ -12,6 +53,26 @@
     </select>
 
     <insert id="memberInsert">
-        insert into member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{addr1}, #{addr2}, #{postcode}, default, #{birth}, default, default, default, #{grade});
+        insert into member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{addr1}, #{addr2}, #{postcode}, default, #{birth}, default, default, default, #{grade})
     </insert>
+
+    <update id="memberUpdateInfo">
+        update member set email = #{email}, tel = #{tel}, addr1 = #{addr1}, addr2 = #{addr2}, postcode = #{postcode} where id = #{id}
+    </update>
+
+    <update id="memberUpdatePw">
+        update member set pw = #{pw} where id = #{id}
+    </update>
+
+    <update id="memberUpdateVisited">
+        update member set visited = visited + 1 where id = #{id}
+    </update>
+
+    <update id="memberUpdatePoint">
+        update member set pt = #{pt} where id = #{id}
+    </update>
+
+    <update id="memberNotUse">
+        update member set useYn = false, visited = 0, pt = 0 where id = #{id}
+    </update>
 </mapper>

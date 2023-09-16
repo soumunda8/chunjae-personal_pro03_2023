@@ -26,3 +26,4 @@ CREATE TABLE MEMBER(
 	useYn BOOLEAN DEFAULT TRUE,							-- 회원 사용 여부
 	grade INT DEFAULT 2										-- 회원 등급 [ 0 : 관리자, 1 : 미정, 2 : 일반사용자]
 );
+

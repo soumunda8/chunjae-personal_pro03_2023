@@ -1,0 +1,4 @@
+@charset "UTF-8";
+
+.user .hero {background-color:var(--main-color);}
+.user .agree_fr {border:2px solid #eee;height:300px;overflow-y:auto;white-space:pre-wrap;padding:24px;margin-bottom:10px;}
