@@ -40,10 +40,8 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public void noticeUpdateVisited(int seq, String id) throws Exception {
-        if(!id.equals("admin")) {
-            noticeDAO.noticeUpdateVisited(seq);
-        }
+    public void noticeUpdateVisited(int seq) throws Exception {
+        noticeDAO.noticeUpdateVisited(seq);
     }
 
     @Override

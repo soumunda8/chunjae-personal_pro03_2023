@@ -58,7 +58,7 @@
                 <c:forEach var="notice" items="${noticeList }" varStatus="status">
                     <tr>
                         <td>${status.count }</td>
-                        <td><a href="${path }/detail.do?no=${notice.seq }">${notice.title }</a></td>
+                        <td><a href="${path }/notice/detail.do?no=${notice.seq }">${notice.title }</a></td>
                         <td>
                             <fmt:parseDate value="${notice.regDate }" var="regDate" pattern="yyyy-MM-dd HH:mm:ss" />
                             <fmt:formatDate value="${regDate }" pattern="yyyy-MM-dd" />

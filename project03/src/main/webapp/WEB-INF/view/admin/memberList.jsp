@@ -57,13 +57,12 @@
                     <c:if test="${member.useYn == true}">사용중</c:if>
                     <c:if test="${member.useYn == false}">사용중지</c:if>
                 </td>
-                <td>
+                <td class="has-text-centered">
                     <c:if test="${member.useYn == true}">
                         <div class="buttons are-small is-centered">
                             <a href="${path }/user/deletePro.do?id=${member.id }" class="button">회원탈퇴</a>
                         </div>
                     </c:if>
-                    <c:if test="${member.useYn == false}">탈퇴</c:if>
                 </td>
             </tr>
         </c:forEach>

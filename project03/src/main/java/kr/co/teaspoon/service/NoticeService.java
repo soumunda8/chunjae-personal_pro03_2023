@@ -12,7 +12,7 @@ public interface NoticeService {
     public Notice noticeDetail(int seq) throws Exception;
     public void noticeInsert(Notice notice) throws Exception;
     public void noticeUpdate(Notice notice) throws Exception;
-    public void noticeUpdateVisited(int seq, String id) throws Exception;
+    public void noticeUpdateVisited(int seq) throws Exception;
     public void noticeDelete(int seq) throws Exception;
 
 }

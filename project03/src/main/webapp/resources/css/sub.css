@@ -2,3 +2,14 @@
 
 .user .hero {background-color:var(--main-color);}
 .user .agree_fr {border:2px solid #eee;height:300px;overflow-y:auto;white-space:pre-wrap;padding:24px;margin-bottom:10px;}
+
+.vote_li.box {border-top:4px solid var(--main-color);}
+.vote_li.box.finish {border-top-color:dimgray;}
+.vote_li.box.finish h3, .vote_li.box.finish p {color:dimgray!important;}
+.vote_li.box.finish .date {text-decoration:line-through;}
+
+.vote_li.box.check {border:4px solid #ff4057;}
+
+.vote_area > input {display:none;}
+.vote_area input + label {cursor:pointer;background-color:#f6f6f9;outline:1px solid var(--main-color);}
+.vote_area input:checked + label {outline:2px solid #ff4057;color:#ff4057;background:#fff;}

@@ -25,7 +25,7 @@
         <div class="tabs is-centered">
             <ul>
                 <li class="is-active"><a>나의 정보</a></li>
-                <li><a>나의 투표 내역</a></li>
+                <li><a href="${path }/vote/getMyList.do">나의 투표 내역</a></li>
             </ul>
         </div>
         <section class="section">

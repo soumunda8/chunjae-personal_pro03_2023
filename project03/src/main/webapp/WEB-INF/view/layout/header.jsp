@@ -19,7 +19,7 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">이벤트</a>
                         <div class="navbar-dropdown">
-                            <a href="#" class="navbar-item">티이슈</a>
+                            <a href="${path }/vote/list.do" class="navbar-item">티이슈</a>
                             <a href="#" class="navbar-item">출석체크</a>
                         </div>
                     </div>

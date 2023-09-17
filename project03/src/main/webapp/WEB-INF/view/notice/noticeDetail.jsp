@@ -22,36 +22,34 @@
 </section>
 <div class="container is-fullhd">
     <section class="section">
-        <section class="section">
-            <h2 class="title has-text-centered">공지사항 - 상세보기</h2>
-            <div class="columns is-mobile">
-                <div class="column is-three-fifths is-offset-one-fifth">
-                    <table class="table is-fullwidth is-bordered">
-                        <colgroup>
-                            <col style="width:20%;">
-                            <col style="width:auto;">
-                        </colgroup>
-                        <tbody>
-                        <tr>
-                            <th class="has-text-centered">조회수</th>
-                            <th>${notice.visited }</th>
-                        </tr>
-                        <tr>
-                            <th class="has-text-centered">제목</th>
-                            <th>${notice.title }</th>
-                        </tr>
-                        <tr>
-                            <th class="has-text-centered">내용</th>
-                            <th>${notice.content }</th>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <h2 class="title has-text-centered">공지사항 - 상세보기</h2>
+        <div class="columns is-mobile">
+            <div class="column is-three-fifths is-offset-one-fifth">
+                <table class="table is-fullwidth is-bordered">
+                    <colgroup>
+                        <col style="width:20%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="has-text-centered">조회수</th>
+                        <td>${notice.visited }</td>
+                    </tr>
+                    <tr>
+                        <th class="has-text-centered">제목</th>
+                        <td>${notice.title }</td>
+                    </tr>
+                    <tr>
+                        <th class="has-text-centered">내용</th>
+                        <td>${notice.content }</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="buttons is-right">
-                <a href="${path }/notice/list.do" class="button is-mainColor">목록</a>
-            </div>
-        </section>
+        </div>
+        <div class="buttons is-right">
+            <a href="${path }/notice/list.do" class="button is-mainColor">목록</a>
+        </div>
     </section>
 </div>
 <jsp:include page="../layout/footer.jsp" />

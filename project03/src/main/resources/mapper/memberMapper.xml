@@ -21,7 +21,7 @@
             </if>
         </where>
         <![CDATA[
-        order by regDate asc LIMIT #{postStart}, #{postCount}
+        order by useYn desc, regDate asc LIMIT #{postStart}, #{postCount}
         ]]>
     </select>
 

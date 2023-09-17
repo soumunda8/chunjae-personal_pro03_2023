@@ -12,3 +12,9 @@ nav.navbar {background:var(--main-color);margin-bottom:1rem;}
 .menu-list a {font-size:14px;font-weight:700;}
 .menu-list a:hover {background-color:transparent;color:var(--admin-sub-color);}
 .menu-list a.is-active {background-color:transparent;color:var(--admin-sub-color);font-weight:700;}
+
+#editSubmit {display:none;}
+.answer_area {background-color:#fff!important;border-radius:5px;}
+
+.vote_li.box {border:4px solid #fff;}
+.vote_li.box.check {border:4px solid #ff4057;}
