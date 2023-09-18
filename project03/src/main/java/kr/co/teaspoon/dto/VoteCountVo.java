@@ -1,11 +1,11 @@
-package kr.co.teaspoon.vo;
+package kr.co.teaspoon.dto;
 
 import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VoteCount {
+public class VoteCountVo {
 
     private int lno;
     private int vno;

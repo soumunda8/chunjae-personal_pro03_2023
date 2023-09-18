@@ -5,7 +5,7 @@ import kr.co.teaspoon.dto.Vote;
 import kr.co.teaspoon.dto.VoteList;
 import kr.co.teaspoon.dto.VoteUser;
 import kr.co.teaspoon.util.Page;
-import kr.co.teaspoon.vo.VoteCount;
+import kr.co.teaspoon.dto.VoteCountVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -88,7 +88,7 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public void voteFinalInsert(VoteCount voteCount) throws Exception {
+    public void voteFinalInsert(VoteCountVo voteCount) throws Exception {
         voteDAO.voteFinalInsert(voteCount);
     }
 
@@ -143,12 +143,12 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public List<VoteCount> voteCountList(int vno) throws Exception {
+    public List<VoteCountVo> voteCountList(int vno) throws Exception {
         return voteDAO.voteCountList(vno);
     }
 
     @Override
-    public VoteCount voteMaxCountList(int vno) throws Exception {
+    public VoteCountVo voteMaxCountList(int vno) throws Exception {
         return voteDAO.voteMaxCountList(vno);
     }
 

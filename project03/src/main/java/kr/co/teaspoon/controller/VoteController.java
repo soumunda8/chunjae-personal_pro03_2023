@@ -4,7 +4,7 @@ import kr.co.teaspoon.dto.*;
 import kr.co.teaspoon.service.MemberService;
 import kr.co.teaspoon.service.VoteService;
 import kr.co.teaspoon.util.Page;
-import kr.co.teaspoon.vo.VoteCount;
+import kr.co.teaspoon.dto.VoteCountVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,18 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/vote/*")
@@ -89,10 +82,10 @@ public class VoteController {
             voteUser.setAuthor(sid);
             VoteUser voteUserInfo = voteService.voteUserList(voteUser);
 
-            List<VoteCount> voteList = voteService.voteCountList(vno);
+            List<VoteCountVo> voteList = voteService.voteCountList(vno);
             model.addAttribute("voteList", voteList);
 
-            VoteCount getMaxLno = voteService.voteMaxCountList(vno);
+            VoteCountVo getMaxLno = voteService.voteMaxCountList(vno);
             model.addAttribute("getMaxLno", getMaxLno);
 
             if(!sid.equals("") && (sid.equals("admin") || voteUserInfo != null)) {
@@ -100,7 +93,7 @@ public class VoteController {
                 if(!sid.equals("admin")) {
                     model.addAttribute("voteUserInfo", voteUserInfo);
                 }
-                List<VoteCount> voteCountList = voteService.voteCountList(vno);
+                List<VoteCountVo> voteCountList = voteService.voteCountList(vno);
                 model.addAttribute("voteCountList", voteCountList);
 
             } else {
@@ -190,9 +183,9 @@ public class VoteController {
 
         if(sid != null && sid.equals("admin")) {
 
-            VoteCount getMaxLno = voteService.voteMaxCountList(vno);
+            VoteCountVo getMaxLno = voteService.voteMaxCountList(vno);
 
-            VoteCount voteCount = new VoteCount();
+            VoteCountVo voteCount = new VoteCountVo();
             voteCount.setVno(vno);
             voteCount.setLno(getMaxLno.getLno());
             voteService.voteFinalInsert(voteCount);

@@ -165,11 +165,11 @@
     </delete>
 
     <!-- 투표 선택지관련 투표 내역 -->
-    <select id="voteCountList" resultType="kr.co.teaspoon.vo.VoteCount">
+    <select id="voteCountList" resultType="kr.co.teaspoon.dto.VoteCountVo">
         select * from voteCount where vno = #{vno}
     </select>
 
-    <select id="voteMaxCountList" resultType="kr.co.teaspoon.vo.VoteCount">
+    <select id="voteMaxCountList" resultType="kr.co.teaspoon.dto.VoteCountVo">
         select lno, MAX(cnt) as cnt from voteCount where vno = #{vno}
     </select>
 

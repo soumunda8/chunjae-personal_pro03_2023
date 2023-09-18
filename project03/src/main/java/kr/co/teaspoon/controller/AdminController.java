@@ -8,7 +8,7 @@ import kr.co.teaspoon.service.MemberService;
 import kr.co.teaspoon.service.NoticeService;
 import kr.co.teaspoon.service.VoteService;
 import kr.co.teaspoon.util.Page;
-import kr.co.teaspoon.vo.VoteCount;
+import kr.co.teaspoon.dto.VoteCountVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -203,10 +203,10 @@ public class AdminController {
                     int cnt = voteService.voteCountCnt(vno);
                     model.addAttribute("cnt", cnt);
 
-                    VoteCount getMaxLno = voteService.voteMaxCountList(vno);
+                    VoteCountVo getMaxLno = voteService.voteMaxCountList(vno);
                     model.addAttribute("getMaxLno", getMaxLno);
 
-                    List<VoteCount> voteCountList = voteService.voteCountList(vno);
+                    List<VoteCountVo> voteCountList = voteService.voteCountList(vno);
                     model.addAttribute("voteCountList", voteCountList);
                 }
 

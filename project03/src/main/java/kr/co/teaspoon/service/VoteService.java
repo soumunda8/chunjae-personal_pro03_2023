@@ -4,7 +4,7 @@ import kr.co.teaspoon.dto.Vote;
 import kr.co.teaspoon.dto.VoteList;
 import kr.co.teaspoon.dto.VoteUser;
 import kr.co.teaspoon.util.Page;
-import kr.co.teaspoon.vo.VoteCount;
+import kr.co.teaspoon.dto.VoteCountVo;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public interface VoteService {
     public void voteUpdateUse(int vno) throws Exception;
     public void voteEdit(Vote vote) throws Exception;
     public void voteVisitCount(int vno) throws Exception;
-    public void voteFinalInsert(VoteCount voteCount) throws Exception;
+    public void voteFinalInsert(VoteCountVo voteCount) throws Exception;
 
     public List<VoteList> voteAnswerList(int vno) throws Exception;
     public void voteAnswerInsert(VoteList voteList) throws Exception;
@@ -35,8 +35,8 @@ public interface VoteService {
     public void voteUserInsert(VoteUser voteUser) throws Exception;
     public void voteUserDelete(VoteUser voteUser) throws Exception;
 
-    public List<VoteCount> voteCountList(int vno) throws Exception;
-    public VoteCount voteMaxCountList(int vno) throws Exception;
+    public List<VoteCountVo> voteCountList(int vno) throws Exception;
+    public VoteCountVo voteMaxCountList(int vno) throws Exception;
     public int voteCountCnt(int vno) throws Exception;
 
 }
