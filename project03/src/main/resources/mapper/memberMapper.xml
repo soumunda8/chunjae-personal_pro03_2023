@@ -45,6 +45,10 @@
         </where>
     </select>
 
+    <select id="getMemberId" resultType="kr.co.teaspoon.dto.Member">
+        select id from member where useYn = true and grade != 0
+    </select>
+
     <select id="memberCanLog" resultType="kr.co.teaspoon.dto.Member">
         select * from member where id = #{id} and useYn = true
     </select>

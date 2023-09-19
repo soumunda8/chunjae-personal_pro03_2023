@@ -32,7 +32,7 @@ public class VoteController {
     HttpSession session;
 
     @RequestMapping(value = "list.do", method = RequestMethod.GET)
-    public String voteList(HttpServletRequest request, Model model) throws Exception{
+    public String voteList(HttpServletRequest request, Model model) throws Exception {
 
         String type = request.getParameter("type");
         String keyword = request.getParameter("keyword");

@@ -59,7 +59,14 @@ CREATE VIEW voteCount AS (SELECT l.lno AS lno, l.vno AS vno, l.title AS title, C
 CREATE TABLE attendance (
 	seq INT AUTO_INCREMENT PRIMARY KEY,								-- 출석 번호 : 자동증가
 	author VARCHAR(20) NOT NULL,										-- 출석 해당 멤버
-	dateYearMonth INT(6) NOT NULL,									-- 해당 년월
-	dateDay INT(2) NOT NULL,											-- 해당 일수
-	clickCnt INT(2) NOT NULL											-- 출석 클릭 횟수
+	dateYearMonth VARCHAR(6) NOT NULL,								-- 해당 년월
+	dateDay VARCHAR(2) NOT NULL										-- 해당 일수
+);
+
+CREATE TABLE attendanceUser (
+	seq INT AUTO_INCREMENT PRIMARY KEY,								-- 출석 사용자 번호 : 자동증가
+	author VARCHAR(20) NOT NULL,										-- 해당 멤버
+	nowDay VARCHAR(2) NOT NULL,										-- 출석 날짜
+	dateClick BOOLEAN NOT NULL,										-- 참여 여부
+	par INT NOT NULL														-- 해당 출석 번호
 );

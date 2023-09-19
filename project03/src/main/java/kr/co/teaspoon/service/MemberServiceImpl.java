@@ -14,6 +14,9 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberDAO memberDAO;
 
+    @Autowired
+    private AttendanceService attendanceService;
+
     @Override
     public List<Member> memberAllList(Page page) throws Exception {
         return memberDAO.memberAllList(page);
@@ -35,7 +38,13 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public List<Member> getMemberId() throws Exception {
+        return memberDAO.getMemberId();
+    }
+
+    @Override
     public void memberInsert(Member member) throws Exception {
+        attendanceService.updateNewUser(member.getId());
         memberDAO.memberInsert(member);
     }
 

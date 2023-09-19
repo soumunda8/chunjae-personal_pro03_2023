@@ -4,5 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="attendance">
-    <select id=""></select>
+    <select id="attendanceList" resultType="kr.co.teaspoon.dto.Attendance">
+        select * from attendance where dateYearMonth = #{dateYearMonth} and author = #{author}
+    </select>
+
+    <insert id="attendanceUserInsert">
+        insert into attendance values(default, #{author}, #{dateYearMonth}, #{dateDay});
+    </insert>
 </mapper>

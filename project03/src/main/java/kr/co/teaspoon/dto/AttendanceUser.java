@@ -5,11 +5,12 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Attendance {
+public class AttendanceUser {
 
     private int seq;
     private String author;
-    private String dateYearMonth;
-    private String dateDay;
+    private String nowDay;
+    private boolean dateClick;
+    private int par;
 
 }

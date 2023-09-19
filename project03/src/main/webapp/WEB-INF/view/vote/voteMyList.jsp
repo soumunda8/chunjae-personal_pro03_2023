@@ -26,6 +26,7 @@
             <ul>
                 <li><a href="${path }/user/myPage.do">나의 정보</a></li>
                 <li class="is-active"><a>나의 투표 내역</a></li>
+                <li><a href="${path }/attend/getMyAttend.do">나의 출석</a></li>
             </ul>
         </div>
         <section class="section">

@@ -35,6 +35,11 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
+    public List<Member> getMemberId() throws Exception {
+        return sqlSession.selectList("member.getMemberId");
+    }
+
+    @Override
     public void memberInsert(Member member) throws Exception {
         sqlSession.insert("member.memberInsert", member);
     }
