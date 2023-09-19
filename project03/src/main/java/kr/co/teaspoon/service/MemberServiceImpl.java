@@ -44,7 +44,6 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void memberInsert(Member member) throws Exception {
-        attendanceService.updateNewUser(member.getId());
         memberDAO.memberInsert(member);
     }
 

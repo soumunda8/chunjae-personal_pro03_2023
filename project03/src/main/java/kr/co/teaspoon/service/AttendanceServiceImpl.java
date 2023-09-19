@@ -24,8 +24,22 @@ public class AttendanceServiceImpl implements AttendanceService {
     private MemberService memberService;
 
     @Override
+    public List<Attendance> attendanceAllList(String dateYearMonth) throws Exception {
+        return attendanceDAO.attendanceAllList(dateYearMonth);
+    }
+
+    @Override
     public List<Attendance> attendanceList(Attendance attendance) throws Exception {
+        Member member = new Member();
+        member.setId(attendance.getAuthor());
+        member.setPt(10);
+        memberService.memberUpdatePoint(member);
         return attendanceDAO.attendanceList(attendance);
+    }
+
+    @Override
+    public int attendanceListCount(Attendance attendance) throws Exception {
+        return attendanceDAO.attendanceListCount(attendance);
     }
 
     @Override
@@ -33,29 +47,27 @@ public class AttendanceServiceImpl implements AttendanceService {
         attendanceDAO.attendanceUserInsert(attendance);
     }
 
-    @Override
-    public void updateNewUser(String id) throws Exception {
+    // 종료시 한달 다채웠으면 + 1000pt
+    @Scheduled(cron = "59 59 23 L * *")
+    public void autoUpdateNewMonth() throws Exception {
 
         LocalDate now = LocalDate.now();
-
         DateTimeFormatter dateYearMonth = DateTimeFormatter.ofPattern("yyyyMM");
         String yearMonth = now.format(dateYearMonth);
-        String day = String.valueOf(now.lengthOfMonth());
-
-        Attendance attendance = new Attendance();
-        attendance.setAuthor(id);
-        attendance.setDateYearMonth(yearMonth);
-        attendance.setDateDay(day);
-        this.attendanceUserInsert(attendance);
-
-    }
-
-    @Scheduled(cron = "0 0 0 1 * *")
-    public void autoUpdateNewMonth() throws Exception {
+        int day = now.lengthOfMonth();
 
         List<Member> memberList = memberService.getMemberId();
         for(Member mem : memberList) {
-            this.updateNewUser(mem.getId());
+            Attendance attend = new Attendance();
+            attend.setAuthor(mem.getId());
+            attend.setDateYearMonth(yearMonth);
+            int cnt = this.attendanceListCount(attend);
+            if(day == cnt) {
+                Member member = new Member();
+                member.setId(mem.getId());
+                member.setPt(20);
+                memberService.memberUpdatePoint(member);
+            }
         }
 
     }

@@ -4,11 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="attendance">
+    <select id="attendanceAllList" resultType="kr.co.teaspoon.dto.Attendance">
+        select * from attendance where dateYearMonth = #{dateYearMonth} and author not in ('admin')
+    </select>
+
     <select id="attendanceList" resultType="kr.co.teaspoon.dto.Attendance">
         select * from attendance where dateYearMonth = #{dateYearMonth} and author = #{author}
     </select>
 
+    <select id="attendanceListCount" resultType="integer">
+        select count(*) from attendance where dateYearMonth = #{dateYearMonth} and author = #{author}
+    </select>
+
     <insert id="attendanceUserInsert">
-        insert into attendance values(default, #{author}, #{dateYearMonth}, #{dateDay});
+        insert into attendance values(default, #{author}, #{dateYearMonth}, #{nowDay})
     </insert>
 </mapper>

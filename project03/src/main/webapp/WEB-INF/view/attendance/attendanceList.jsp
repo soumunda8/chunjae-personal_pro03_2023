@@ -31,11 +31,88 @@
         </div>
         <section class="section">
             <h2 class="title has-text-centered">출석체크</h2>
-            <c:forEach var="day" items="${day }" varStatus="status">
-                <div style="border:1px solid pink;box-sizing:border-box;display:inline-block;">
-                    [${status.count }]
+
+            <div class="block">
+                <h4 class="is-size-5 has-text-weight-bold has-text-centered">${currentYear}년 ${currentMonth}월</h4>
+            </div>
+
+            <div class="block">
+                <c:choose>
+                    <c:when test="${monthFirstDateWeek.equals('MONDAY') }">
+                        <c:set var="start" value="0" />
+                    </c:when>
+                    <c:when test="${monthFirstDateWeek.equals('TUESDAY') }">
+                        <c:set var="start" value="1" />
+                    </c:when>
+                    <c:when test="${monthFirstDateWeek.equals('WEDNESDAY') }">
+                        <c:set var="start" value="2" />
+                    </c:when>
+                    <c:when test="${monthFirstDateWeek.equals('THURSDAY') }">
+                        <c:set var="start" value="3" />
+                    </c:when>
+                    <c:when test="${monthFirstDateWeek.equals('FRIDAY') }">
+                        <c:set var="start" value="4" />
+                    </c:when>
+                    <c:when test="${monthFirstDateWeek.equals('SATURDAY') }">
+                        <c:set var="start" value="5" />
+                    </c:when>
+                    <c:when test="${monthFirstDateWeek.equals('SUNDAY') }">
+                        <c:set var="start" value="6" />
+                    </c:when>
+                </c:choose>
+                <div class="columns is-centered has-text-centered is-mobile is-multiline">
+                    <c:if test="${start > 0}">
+                        <c:forEach var="startI" begin="0" end="${start }">
+                            <div class="column m-1 notification is-light is-light" style="height:80px;"></div>
+                        </c:forEach>
+                    </c:if>
+                    <c:forEach var="day" begin="1" end="${dayList }">
+                    <c:if test="${(start + day) % 7 == 0}">
                 </div>
-            </c:forEach>
+                <div class="columns is-centered has-text-centered is-mobile is-multiline">
+                    </c:if>
+                    <c:if test="${!empty attendanceList }">
+                        <c:forEach var="attend" items="${attendanceList }">
+                            <div class="column m-1 notification is-light<c:if test="${day != attend.nowDay }"> is-info</c:if><c:if test="${day == attend.nowDay }"> is-danger</c:if>" style="height:80px;">[${day }]<c:if test="${day == attend.nowDay }"><br />출석 완료</c:if></div>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty attendanceList }">
+                        <div class="column m-1 notification is-info is-light" style="height:80px;">[${day }]</div>
+                    </c:if>
+                    </c:forEach>
+                    <c:if test="${(dayList + start + 1) % 7 != 0}">
+                        <c:choose>
+                            <c:when test="${(start + dayList + 1) % 7 == 1 }">
+                                <c:set var="endNum" value="6" />
+                            </c:when>
+                            <c:when test="${(start + dayList + 1) % 7 == 2 }">
+                                <c:set var="endNum" value="5" />
+                            </c:when>
+                            <c:when test="${(start + dayList + 1) % 7 == 3 }">
+                                <c:set var="endNum" value="4" />
+                            </c:when>
+                            <c:when test="${(start + dayList + 1) % 7 == 4 }">
+                                <c:set var="endNum" value="3" />
+                            </c:when>
+                            <c:when test="${(start + dayList + 1) % 7 == 5 }">
+                                <c:set var="endNum" value="2" />
+                            </c:when>
+                            <c:when test="${(start + dayList + 1) % 7 == 6 }">
+                                <c:set var="endNum" value="1" />
+                            </c:when>
+                        </c:choose>
+                        <c:forEach var="endI" begin="1" end="${endNum }">
+                            <div class="column m-1 notification is-light is-light" style="height:80px;"></div>
+                        </c:forEach>
+                    </c:if>
+                </div>
+            </div>
+
+            <c:if test="${!pass }">
+                <div class="buttons is-centered">
+                    <a href="${path }/attend/add.do" class="button is-mainColor">출석 체크</a>
+                </div>
+            </c:if>
         </section>
     </section>
 </div>

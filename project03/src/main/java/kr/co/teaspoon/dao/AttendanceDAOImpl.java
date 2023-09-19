@@ -14,8 +14,18 @@ public class AttendanceDAOImpl implements AttendanceDAO {
     private SqlSession sqlSession;
 
     @Override
+    public List<Attendance> attendanceAllList(String dateYearMonth) throws Exception {
+        return sqlSession.selectList("attendance.attendanceAllList", dateYearMonth);
+    }
+
+    @Override
     public List<Attendance> attendanceList(Attendance attendance) throws Exception {
         return sqlSession.selectList("attendance.attendanceList", attendance);
+    }
+
+    @Override
+    public int attendanceListCount(Attendance attendance) throws Exception {
+        return sqlSession.selectOne("attendance.attendanceListCount", attendance);
     }
 
     @Override

@@ -10,6 +10,6 @@ public class Attendance {
     private int seq;
     private String author;
     private String dateYearMonth;
-    private String dateDay;
+    private String nowDay;
 
 }
