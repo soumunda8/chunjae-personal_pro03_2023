@@ -56,12 +56,10 @@ CREATE TABLE voteAnswerUser(
 
 CREATE VIEW voteCount AS (SELECT l.lno AS lno, l.vno AS vno, l.title AS title, COUNT(u.uno) AS cnt FROM voteanswerlist l LEFT JOIN voteansweruser u ON l.lno = u.lno GROUP BY l.lno);
 
-CREATE TABLE attendance(
+CREATE TABLE attendance (
 	seq INT AUTO_INCREMENT PRIMARY KEY,								-- 출석 번호 : 자동증가
 	author VARCHAR(20) NOT NULL,										-- 출석 해당 멤버
 	dateYearMonth INT(6) NOT NULL,									-- 해당 년월
 	dateDay INT(2) NOT NULL,											-- 해당 일수
 	clickCnt INT(2) NOT NULL											-- 출석 클릭 횟수
 );
-
-INSERT INTO 
