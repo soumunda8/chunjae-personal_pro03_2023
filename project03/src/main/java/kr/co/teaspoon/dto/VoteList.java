@@ -10,5 +10,6 @@ public class VoteList {
     private int lno;
     private int vno;
     private String title;
+    private String colorNum;
 
 }

@@ -239,6 +239,7 @@ public class VoteController {
         if(sid != null && sid.equals("admin")) {
             VoteList voteAnswer = new VoteList();
             voteAnswer.setTitle(request.getParameter("title"));
+            voteAnswer.setColorNum(request.getParameter("colorNum"));
             voteAnswer.setVno(vno);
             voteService.voteAnswerInsert(voteAnswer);
 

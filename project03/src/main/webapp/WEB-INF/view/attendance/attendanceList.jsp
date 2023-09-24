@@ -71,14 +71,22 @@
                 </div>
                 <div class="columns is-centered has-text-centered is-mobile is-multiline">
                     </c:if>
-                    <c:if test="${!empty attendanceList }">
-                        <c:forEach var="attend" items="${attendanceList }">
-                            <div class="column m-1 notification is-light<c:if test="${day != attend.nowDay }"> is-info</c:if><c:if test="${day == attend.nowDay }"> is-danger</c:if>" style="height:80px;">[${day }]<c:if test="${day == attend.nowDay }"><br />출석 완료</c:if></div>
-                        </c:forEach>
-                    </c:if>
-                    <c:if test="${empty attendanceList }">
-                        <div class="column m-1 notification is-info is-light" style="height:80px;">[${day }]</div>
-                    </c:if>
+                        <c:if test="${!empty attendanceList }">
+                            <c:set var="loop_flag" value="false" />
+                            <c:if test="${not loop_flag }">
+                                <c:forEach var="attend" items="${attendanceList }">
+                                    <c:if test="${day == attend.nowDay }">
+                                        <c:set var="loop_flag" value="true" />
+                                    </c:if>
+                                </c:forEach>
+                            </c:if>
+                            <div class="column m-1 notification is-light<c:if test="${!loop_flag }"> is-info</c:if><c:if test="${loop_flag }"> is-danger</c:if>" style="height:80px;">[${day }]
+                                <c:if test="${loop_flag }"><br />출석 완료</c:if>
+                            </div>
+                        </c:if>
+                        <c:if test="${empty attendanceList }">
+                            <div class="column m-1 notification is-info is-light" style="height:80px;">[${day }]</div>
+                        </c:if>
                     </c:forEach>
                     <c:if test="${(dayList + start + 1) % 7 != 0}">
                         <c:choose>

@@ -31,24 +31,66 @@
             <div class="column is-half has-text-right">참여시 ${vote.addPt }포인트 증정</div>
         </div>
 
-        <div class="columns is-multiline is-mobile is-four-fifths is-offset-1 mt-5">
-
-            <c:if test="${voteYn && vote.stateYn }">
-                <c:forEach items="${voteList }" var="voteAnswer" varStatus="status">
-                    <div class="column is-half">
-                        <div class="vote_li box<c:if test="${voteUserInfo.lno == voteAnswer.lno || (cnt != 0 && sid.equals('admin') && getMaxLno.lno == voteAnswer.lno)}"> check</c:if>">
-                            <p class="is-size-3 has-text-weight-semibold">${voteAnswer.title }</p>
-                            <c:if test="${cnt !=0 }">
+        <c:if test="${voteYn && vote.stateYn }">
+            <div class="columns is-multiline">
+                <c:forEach items="${voteCountList }" var="voteAnswer" varStatus="status">
+                    <div class="column is-4">
+                        <div class="card shadow has-text-centered">
+                            <c:if test="${cnt != 0 }">
                                 <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
-                                <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</span></p>
+                                <div class="is-relative rounded-top progress-wrapper" data-color="${voteAnswer.colorNum }">
+                                    <div class="wave" data-progress="<fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0" />%"></div>
+                                </div>
+                                <div class="card-content has-background-white">
+                                    <h4 <c:if test="${voteUserInfo.lno == voteAnswer.lno || (cnt != 0 && sid.equals('admin') && getMaxLno.lno == voteAnswer.lno)}">class="mine"</c:if>>${voteAnswer.title } (<fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0" />%)</h4>
+                                </div>
                             </c:if>
                             <c:if test="${cnt == 0 }">
-                                <p><span>투표수 : 0</span> | <span>투표율 : 0 %</span></p>
+                                <div class="is-relative rounded-top progress-wrapper" data-color="${voteAnswer.colorNum }">
+                                    <div class="wave" data-progress="0%"></div>
+                                </div>
+                                <div class="card-content has-background-white">
+                                    <h4>${voteAnswer.title } (0%)</h4>
+                                </div>
                             </c:if>
                         </div>
                     </div>
                 </c:forEach>
-            </c:if>
+            </div>
+        </c:if>
+
+        <c:if test="${!vote.stateYn }">
+            <div class="columns is-multiline">
+                <c:forEach items="${voteList }" var="voteAnswer" varStatus="status">
+                    <div class="column is-4">
+                        <div class="card shadow has-text-centered<c:if test="${getMaxLno.lno == voteAnswer.lno }"> voteCheck</c:if>">
+                            <c:if test="${cnt != 0 }">
+                                <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
+                                <div class="is-relative rounded-top progress-wrapper" data-color="${voteAnswer.colorNum }">
+                                    <div class="wave" data-progress="<fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0" />%"></div>
+                                </div>
+                                <div class="card-content has-background-white">
+                                    <h4<c:if test="${voteUserInfo.lno == voteAnswer.lno }"> class="mine"</c:if>>
+                                        <c:if test="${getMaxLno.lno == voteAnswer.lno }">[확정] </c:if>
+                                        ${voteAnswer.title } (<fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0" />%)
+                                    </h4>
+                                </div>
+                            </c:if>
+                            <c:if test="${cnt == 0 }">
+                                <div class="is-relative rounded-top progress-wrapper" data-color="${voteAnswer.colorNum }">
+                                    <div class="wave" data-progress="0%"></div>
+                                </div>
+                                <div class="card-content has-background-white">
+                                    <h4>${voteAnswer.title } (0%)</h4>
+                                </div>
+                            </c:if>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </c:if>
+
+        <div class="columns is-multiline is-mobile is-four-fifths is-offset-1 mt-5">
 
             <c:if test="${!voteYn && vote.stateYn }">
                 <hr />
@@ -121,18 +163,6 @@
                 <hr />
             </c:if>
 
-            <c:if test="${!vote.stateYn }">
-                <c:forEach items="${voteList }" var="voteAnswer" varStatus="status">
-                    <div class="column is-half">
-                        <div class="vote_li box<c:if test="${getMaxLno.lno == voteAnswer.lno }"> check</c:if>">
-                            <p class="is-size-3 has-text-weight-semibold"><c:if test="${getMaxLno.lno == voteAnswer.lno }">[확정] </c:if>${voteAnswer.title }</p>
-                            <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
-                            <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</span></p>
-                        </div>
-                    </div>
-                </c:forEach>
-            </c:if>
-
             <div class="column is-full has-text-centered my-5">
                 ${vote.content }
             </div>
@@ -145,6 +175,7 @@
 
         <!-- 댓글 넣을 예정 -->
     </section>
+    <script src="${path }/resources/js/common.js"></script>
 </div>
 <jsp:include page="../layout/footer.jsp" />
 </body>

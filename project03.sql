@@ -44,7 +44,8 @@ CREATE TABLE vote(
 CREATE TABLE voteAnswerList(
 	lno INT AUTO_INCREMENT PRIMARY KEY,								-- 질문지 내역 번호 : 자동증가
 	vno INT NOT NULL,														-- 질문지 해당 투표번호
-	title VARCHAR(200) NOT NULL										-- 질문지 제목
+	title VARCHAR(200) NOT NULL,										-- 질문지 제목
+	colorNum VARCHAR(10) NOT NULL                            -- 투표율 색상지정
 );
 
 CREATE TABLE voteAnswerUser(
@@ -54,7 +55,7 @@ CREATE TABLE voteAnswerUser(
 	author VARCHAR(20) NOT NULL										-- 질문자 아이디
 );
 
-CREATE VIEW voteCount AS (SELECT l.lno AS lno, l.vno AS vno, l.title AS title, COUNT(u.uno) AS cnt FROM voteanswerlist l LEFT JOIN voteansweruser u ON l.lno = u.lno GROUP BY l.lno);
+CREATE VIEW voteCount AS (SELECT l.lno AS lno, l.vno AS vno, l.title AS title, l.colorNum AS colorNum, COUNT(u.uno) AS cnt FROM voteanswerlist l LEFT JOIN voteansweruser u ON l.lno = u.lno GROUP BY l.lno);
 
 CREATE TABLE attendance (
 	seq INT AUTO_INCREMENT PRIMARY KEY,								-- 출석 번호 : 자동증가

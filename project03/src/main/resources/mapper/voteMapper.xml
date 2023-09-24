@@ -126,7 +126,7 @@
 
     <!-- 투표 선택지 등록하기 - 관리자 -->
     <insert id="voteAnswerInsert">
-        insert into voteAnswerList values (default, #{vno}, #{title})
+        insert into voteAnswerList values (default, #{vno}, #{title}, #{colorNum})
     </insert>
 
     <!-- 투표 삭제시 내역 전체 삭제하기 -->
