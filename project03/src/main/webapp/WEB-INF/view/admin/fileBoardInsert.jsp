@@ -15,7 +15,7 @@
 <jsp:include page="../layout/headerAdmin.jsp" />
 <div class="column">
     <h1 class="is-size-3 has-text-weight-semibold">학습자료실 관리 - 등록하기</h1>
-    <form action="${path }/fileBoard/add.do" method="post" class="mt-5">
+    <form action="${path }/fileBoard/add.do" method="post" class="mt-5" enctype="multipart/form-data">
         <table class="table is-fullwidth is-bordered">
             <colgroup>
                 <col style="width:20%;">
@@ -37,6 +37,12 @@
                     </script>
                 </td>
             </tr>
+            <tr>
+                <th class="has-text-centered">파일 업로드<br />(10MB 이하)<span class="btn pt-0 pl-1 pr-0" onclick="addFile()">(+)</span></th>
+                <td class="file_area">
+                    <input type="file" class="form-control uploadFiles" name="uploadFiles" id="uploadFiles1" multiple>
+                </td>
+            </tr>
             </tbody>
         </table>
         <div class="buttons is-right">
@@ -44,6 +50,12 @@
             <a href="${path }/admin/fileBoardList.do" class="button is-success">목록</a>
         </div>
     </form>
+    <script>
+        function addFile() {
+            let num = $(".uploadFiles").length + 1;
+            $(".file_area").append("<input type='file' class='form-control uploadFiles mt-1' name='uploadFiles' id='uploadFiles" + num + "' multiple>");
+        }
+    </script>
 </div>
 <jsp:include page="../layout/footerAdmin.jsp" />
 </body>

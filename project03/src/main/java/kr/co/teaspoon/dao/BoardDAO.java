@@ -11,6 +11,7 @@ public interface BoardDAO {
     public List<BoardVo> boardList(Page page) throws Exception;
     public int boardListCount(Page page) throws Exception;
     public BoardVo boardDetail(int seq) throws Exception;
+    public BoardVo boardDetailLast() throws Exception;
     public void boardInsert(Board notice) throws Exception;
     public void boardUpdate(Board notice) throws Exception;
     public void boardUpdateVisited(int seq) throws Exception;

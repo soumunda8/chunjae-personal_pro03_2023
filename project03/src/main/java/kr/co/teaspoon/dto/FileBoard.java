@@ -5,7 +5,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardFile {
+public class FileBoard {
 
     private int fno;
     private String boardNm;

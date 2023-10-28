@@ -15,7 +15,7 @@
 <jsp:include page="../layout/headerAdmin.jsp" />
 <div class="column">
     <h1 class="is-size-3 has-text-weight-semibold">학습자료실 관리 - 수정하기</h1>
-    <form action="${path }/fileBoard/edit.do" method="post" class="mt-5">
+    <form action="${path }/fileBoard/edit.do" method="post" class="mt-5" enctype="multipart/form-data">
         <table class="table is-fullwidth is-bordered">
             <colgroup>
                 <col style="width:20%;">
@@ -38,6 +38,15 @@
                     </script>
                 </td>
             </tr>
+            <tr>
+                <th class="has-text-centered">파일 업로드<br />(10MB 이하)<span class="btn pt-0 pl-1 pr-0" onclick="addFile()">(+)</span></th>
+                <td class="file_area">
+                    <c:forEach var="files" items="${fileList }" varStatus="status">
+                        <p id="files${status.count}">${files.originNm } <button type="button" class="btn btn-primary px-2 py-0 ml-2" onclick="removeFiles(${files.fno }, ${status.count })" style="font-size:0.8rem;">삭제</button></p>
+                    </c:forEach>
+                    <input type="file" class="form-control uploadFiles" name="uploadFiles" id="uploadFiles1" multiple>
+                </td>
+            </tr>
             </tbody>
         </table>
         <div class="buttons is-right">
@@ -45,6 +54,30 @@
             <a href="${path }/admin/fileBoardList.do" class="button is-success">목록</a>
         </div>
     </form>
+    <script>
+        function addFile() {
+            let num = $(".uploadFiles").length + 1;
+            $(".file_area").append("<input type='file' class='form-control uploadFiles mt-1' name='uploadFiles' id='uploadFiles" + num + "' multiple>");
+        }
+
+        function removeFiles(fno, cnt) {
+            if(!confirm("해당 파일을 삭제하시겠습니까?")) {return false;}
+
+            let params = {"fno" : fno};
+            $.ajax({
+                url:"${path }/util/fileRemove.do",
+                type:"post",
+                data:JSON.stringify(params),
+                dataType:"json",
+                contentType:"application/json",
+                success : function(result) {
+                    if(result === true) {
+                        $("#files" + cnt).remove();
+                    }
+                },
+            });
+        }
+    </script>
 </div>
 <jsp:include page="../layout/footerAdmin.jsp" />
 </body>

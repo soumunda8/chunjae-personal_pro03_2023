@@ -43,6 +43,10 @@
         select * from board where seq = #{seq}
     </select>
 
+    <select id="boardDetailLast" resultType="kr.co.teaspoon.dto.BoardVo">
+        select * from board ORDER BY regDate DESC LIMIT 1
+    </select>
+
     <insert id="boardInsert">
         insert into board values(default, #{boardNm}, #{author}, #{title}, #{content}, default, default)
     </insert>

@@ -1,22 +1,34 @@
 package kr.co.teaspoon.controller;
 
+import kr.co.teaspoon.dto.FileBoard;
+import kr.co.teaspoon.service.FileBoardService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLEncoder;
 import java.util.UUID;
 
 @Controller
 @RequestMapping("/util/*")
 public class UtilController {
+
+    @Autowired
+    private FileBoardService fileBoardService;
 
     @RequestMapping(value="imageUpload.do", method = RequestMethod.POST)
     public void imageUpload(HttpServletRequest request, HttpServletResponse response, MultipartHttpServletRequest multiFile, @RequestParam MultipartFile upload) throws Exception{
@@ -37,8 +49,8 @@ public class UtilController {
             byte[] bytes = upload.getBytes();
 
             //이미지 경로 생성
-            String path = "C:\\Dev\\IdeaProjects\\project\\personal\\project3\\src\\main\\webapp\\resources\\upload" + "CkImage/";	// 개발 서버
-            //String path = request.getRealPath("/resource/uploadCkImage/");                                                        // 운영 서버
+            String path = "C:\\Dev\\IdeaProjects\\project\\personal\\project3\\src\\main\\webapp\\resources\\upload\\CkImage/";	         // 개발 서버
+            //String path = request.getRealPath("/resource/upload/CkImage/");                                                            // 운영 서버
             String ckUploadPath = path + uid + "_" + fileName;
             File folder = new File(path);
 
@@ -78,12 +90,12 @@ public class UtilController {
     }
 
     //ckeditor를 이용한 서버에 전송된 이미지 뿌려주기
-    @RequestMapping(value="ckImgSubmit.do")
+    @RequestMapping(value="ckImgSubmit.do", method = RequestMethod.GET)
     public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         //서버에 저장된 이미지 경로
-        String path = "C:\\Dev\\IdeaProjects\\project\\personal\\project3\\src\\main\\webapp\\resources\\upload" + "CkImage/";	// 개발 서버
-        //String path = request.getRealPath("/resource/uploadCkImage/");                                                        // 운영 서버
+        String path = "C:\\Dev\\IdeaProjects\\project\\personal\\project3\\src\\main\\webapp\\resources\\upload\\CkImage/";	     // 개발 서버
+        //String path = request.getRealPath("/resource/upload/CkImage/");                                                        // 운영 서버
         String sDirPath = path + uid + "_" + fileName;
 
         File imgFile = new File(sDirPath);
@@ -121,6 +133,75 @@ public class UtilController {
                 out.close();
             }
         }
+    }
+
+    @RequestMapping(value="fileDownload.do", method = RequestMethod.GET)
+    public String fileDownload(@RequestParam int no, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String urlPath = request.getHeader("referer");
+
+        FileBoard files = fileBoardService.fileByFno(no);
+
+        ServletContext application = request.getSession().getServletContext();
+        String realPath = application.getRealPath("/resources/upload/");
+
+        String saveFolder = realPath + files.getSaveFolder();
+        String originalFile = files.getOriginNm();
+        String saveFile = files.getSaveNm();
+        File file = new File(saveFolder, saveFile);
+
+        response.setContentType("apllication/download; charset=UTF-8");
+        response.setContentLength((int) file.length());
+
+        String header = request.getHeader("User-Agent");
+        boolean isIE = header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1;
+        String fileName = null;
+        // IE는 다르게 처리
+        if (isIE) {
+            fileName = URLEncoder.encode(originalFile, "UTF-8").replaceAll("\\+", "%20");
+        } else {
+            fileName = new String(originalFile.getBytes("UTF-8"), "ISO-8859-1");
+        }
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\";");
+        response.setHeader("Content-Transfer-Encoding", "binary");
+        OutputStream out = response.getOutputStream();
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(file);
+            FileCopyUtils.copy(fis, out);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(fis != null) {
+                try {
+                    fis.close();
+                    out.flush();
+                }catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            out.close();
+        }
+
+        return "redirect:" + urlPath;
+    }
+
+    @RequestMapping(value="fileRemove.do", method=RequestMethod.POST)
+    public ResponseEntity fileRemove(@RequestBody FileBoard fileBoard, HttpServletRequest request) throws Exception {
+        boolean result = false;
+
+        ServletContext application = request.getSession().getServletContext();
+        String realPath = application.getRealPath("/resources/upload/");
+
+        int fno = fileBoard.getFno();
+        FileBoard files = fileBoardService.fileByFno(fno);
+        File file = new File(realPath + files.getSaveFolder() + File.separator + files.getSaveNm());
+
+        if (file.exists()) { // 해당 파일이 존재하면
+            file.delete(); // 파일 삭제
+            fileBoardService.filesDelete(fno);
+            result = true;
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

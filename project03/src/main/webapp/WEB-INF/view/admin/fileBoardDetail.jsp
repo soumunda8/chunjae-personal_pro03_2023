@@ -32,6 +32,22 @@
             <th class="has-text-centered">내용</th>
             <td>${fileBoard.content }</td>
         </tr>
+        <c:if test="${not empty fileList }">
+            <tr>
+                <th class="has-text-centered">파일</th>
+                <td>
+                    <ul>
+                        <c:forEach var="files" items="${fileList }">
+                            <li>
+                                <a href="${path }/util/fileDownload.do?no=${files.fno }" download="${files.originNm }">
+                                    <i class="fas fa-file-alt pr-1"></i> ${files.originNm }
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </td>
+            </tr>
+        </c:if>
         </tbody>
     </table>
     <div class="buttons is-right">

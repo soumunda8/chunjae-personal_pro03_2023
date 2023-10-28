@@ -1,6 +1,7 @@
 package kr.co.teaspoon.controller;
 
 import kr.co.teaspoon.dto.*;
+import kr.co.teaspoon.service.FileBoardService;
 import kr.co.teaspoon.service.MemberService;
 import kr.co.teaspoon.service.BoardService;
 import kr.co.teaspoon.service.VoteService;
@@ -26,6 +27,9 @@ public class AdminController {
 
     @Autowired
     private BoardService boardService;
+
+    @Autowired
+    private FileBoardService fileBoardService;
 
     @Autowired
     private VoteService voteService;
@@ -194,6 +198,14 @@ public class AdminController {
             if(no != 0) {
                 BoardVo fileBoard = boardService.boardDetail(no);
                 model.addAttribute("fileBoard", fileBoard);
+
+                FileBoard fileDTO = new FileBoard();
+                fileDTO.setSeq(no);
+                fileDTO.setBoardNm("fileBoard");
+                List<FileBoard> fileList = fileBoardService.fileListByPar(fileDTO);
+                if(fileList != null) {
+                    model.addAttribute("fileList", fileList);
+                }
                 return "/admin/fileBoardDetail";
             } else {
                 return "redirect:/admin/fileBoardList.do";
@@ -205,7 +217,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "fileBoardAdd.do", method = RequestMethod.GET)
-    public String fileBoardInsert(Model model) throws Exception {
+    public String FileBoardInsert(Model model) throws Exception {
 
         String sid = (String) session.getAttribute("sid");
 
@@ -219,15 +231,24 @@ public class AdminController {
     }
 
     @RequestMapping(value = "fileBoardEdit.do", method = RequestMethod.GET)
-    public String fileBoardUpdate(@RequestParam int no, Model model) throws Exception {
+    public String FileBoardUpdate(@RequestParam int no, Model model) throws Exception {
 
         String sid = (String) session.getAttribute("sid");
 
         if(sid != null && sid.equals("admin")) {
             BoardVo fileBoard = boardService.boardDetail(no);
             model.addAttribute("fileBoard", fileBoard);
+
+            FileBoard fileDTO = new FileBoard();
+            fileDTO.setSeq(no);
+            fileDTO.setBoardNm("fileBoard");
+            List<FileBoard> fileList = fileBoardService.fileListByPar(fileDTO);
+            if(fileList != null) {
+                model.addAttribute("fileList", fileList);
+            }
+
             model.addAttribute("adminNum", 2);
-            return "/admin/noticeUpdate";
+            return "/admin/fileBoardUpdate";
         } else {
             return "redirect:/";
         }

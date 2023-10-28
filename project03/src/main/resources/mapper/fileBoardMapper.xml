@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fileBoard">
+
+    <select id="fileListByPar" resultType="kr.co.teaspoon.dto.FileBoard">
+        SELECT * FROM fileBoard WHERE seq = #{seq} and boardNm = #{boardNm}
+    </select>
+
+    <select id="fileByFno" resultType="kr.co.teaspoon.dto.FileBoard">
+        SELECT * FROM fileBoard WHERE fno = #{fno}
+    </select>
+
+    <insert id="filesInsert">
+        INSERT INTO fileBoard VALUES (DEFAULT, #{boardNm}, #{seq}, #{saveFolder}, #{originNm}, #{saveNm}, DEFAULT)
+    </insert>
+
+    <delete id="filesDelete">
+        DELETE FROM fileBoard WHERE fno = #{fno}
+    </delete>
+
+    <delete id="filesDeleteAll">
+        DELETE FROM fileBoard WHERE seq = #{seq}
+    </delete>
+
+</mapper>

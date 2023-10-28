@@ -31,6 +31,11 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public BoardVo boardDetailLast() throws Exception {
+        return boardDAO.boardDetailLast();
+    }
+
+    @Override
     public void boardInsert(Board board) throws Exception {
         boardDAO.boardInsert(board);
     }

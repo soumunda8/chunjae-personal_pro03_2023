@@ -14,7 +14,7 @@ CREATE TABLE board(
 
 CREATE VIEW boardList AS (SELECT b.seq AS seq, b.boardNm AS boardNm, b.author AS author, m.name AS name, b.title AS title, b.content AS content, b.regDate AS regDate, b.visited AS visited FROM board b, member m WHERE b.author = m.id order BY b.seq ASC);
 
-CREATE TABLE boardFile(
+CREATE TABLE fileBoard(
 	fno INT PRIMARY KEY AUTO_INCREMENT,   							-- 파일번호: 자동발생
 	boardNm VARCHAR(100) NOT NULL,									-- 해당 게시글 이름
 	seq INT NOT NULL,   													-- 해당 게시글 번호
@@ -24,7 +24,7 @@ CREATE TABLE boardFile(
 	uploadDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP	-- 파일 업로드 일자
 );
 
-CREATE TABLE boardComment(
+CREATE TABLE commentBoard(
    cno INT PRIMARY KEY AUTO_INCREMENT,   							-- 댓글번호: 자동발생
 	boardNm VARCHAR(100) NOT NULL,									-- 해당 게시글 이름
 	seq INT NOT NULL,   													-- 해당 게시글 번호
@@ -33,7 +33,7 @@ CREATE TABLE boardComment(
 	resDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP   	-- 댓글 등록일
 );
 
-CREATE VIEW commentList AS (SELECT c.cno AS cno, c.boardNm AS boardNm, c.seq AS boardNo, c.author AS author, m.name AS name, c.content AS content, c.resDate AS resDate FROM boardComment c, member m WHERE c.author = m.id order BY c.cno ASC);
+CREATE VIEW commentList AS (SELECT c.cno AS cno, c.boardNm AS boardNm, c.seq AS boardNo, c.author AS author, m.name AS name, c.content AS content, c.resDate AS resDate FROM commentBoard c, member m WHERE c.author = m.id order BY c.cno ASC);
 
 CREATE TABLE MEMBER(
 	id VARCHAR(20) PRIMARY KEY,							-- 회원 아이디

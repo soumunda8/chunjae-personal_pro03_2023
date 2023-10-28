@@ -46,6 +46,8 @@
     <context:annotation-config />
     <bean id="boardService" class="kr.co.teaspoon.service.BoardServiceImpl" />
     <bean id="boardDAO" class="kr.co.teaspoon.dao.BoardDAOImpl" />
+    <bean id="fileBoardService" class="kr.co.teaspoon.service.FileBoardServiceImpl" />
+    <bean id="fileBoardDAO" class="kr.co.teaspoon.dao.FileBoardDAOImpl" />
     <bean id="memberService" class="kr.co.teaspoon.service.MemberServiceImpl" />
     <bean id="memberDAO" class="kr.co.teaspoon.dao.MemberDAOImpl" />
     <bean id="voteService" class="kr.co.teaspoon.service.VoteServiceImpl" />

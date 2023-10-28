@@ -31,6 +31,11 @@ public class BoardDAOImpl implements BoardDAO {
     }
 
     @Override
+    public BoardVo boardDetailLast() throws Exception {
+        return sqlSession.selectOne("board.boardDetailLast");
+    }
+
+    @Override
     public void boardInsert(Board board) throws Exception {
         sqlSession.insert("board.boardInsert", board);
     }
