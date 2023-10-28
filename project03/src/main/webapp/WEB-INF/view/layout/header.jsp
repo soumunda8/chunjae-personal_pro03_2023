@@ -28,8 +28,7 @@
                         <div class="navbar-dropdown">
                             <a href="${path }/notice/list.do" class="navbar-item">공지사항</a>
                             <a href="#" class="navbar-item">자유게시판</a>
-                            <a href="#" class="navbar-item">소통게시판</a>
-                            <a href="#" class="navbar-item">학습자료실</a>
+                            <a href="${path }/fileBoard/list.do" class="navbar-item">학습자료실</a>
                             <hr class="navbar-divider">
                             <a href="#" class="navbar-item">문의하기</a>
                         </div>

@@ -2,15 +2,14 @@ package kr.co.teaspoon.dto;
 
 import lombok.*;
 
-@Setter
-@Getter
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Notice {
+public class Board {
 
     private int seq;
+    private String boardNm;
+    private String author;
     private String title;
     private String content;
     private String regDate;

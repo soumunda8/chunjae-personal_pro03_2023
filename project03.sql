@@ -2,13 +2,38 @@ CREATE DATABASE teaspoon_personal;
 
 USE teaspoon_personal;
 
-CREATE TABLE notice(
-	seq INT AUTO_INCREMENT PRIMARY KEY,					-- 공지 번호 : 자동 증가
-	title VARCHAR(100) NOT NULL,							-- 공지 제목
-	content VARCHAR(1000) NOT NULL,						-- 공지 내용
-	regDate DATETIME DEFAULT CURRENT_TIMESTAMP(),	-- 공지 등록일
-	visited INT DEFAULT 0									-- 공지 조회수
+CREATE TABLE board(
+	seq INT AUTO_INCREMENT PRIMARY KEY,					-- 게시글 번호 : 자동 증가
+	boardNm VARCHAR(100) NOT NULL,						-- 게시판 이름
+	author VARCHAR(20) NOT NULL,   						-- 게시판 작성자
+	title VARCHAR(100) NOT NULL,							-- 게시글 제목
+	content VARCHAR(1000) NOT NULL,						-- 게시글 내용
+	regDate DATETIME DEFAULT CURRENT_TIMESTAMP(),	-- 게시글 등록일
+	visited INT DEFAULT 0									-- 게시글 조회수
 );
+
+CREATE VIEW boardList AS (SELECT b.seq AS seq, b.boardNm AS boardNm, b.author AS author, m.name AS name, b.title AS title, b.content AS content, b.regDate AS regDate, b.visited AS visited FROM board b, member m WHERE b.author = m.id order BY b.seq ASC);
+
+CREATE TABLE boardFile(
+	fno INT PRIMARY KEY AUTO_INCREMENT,   							-- 파일번호: 자동발생
+	boardNm VARCHAR(100) NOT NULL,									-- 해당 게시글 이름
+	seq INT NOT NULL,   													-- 해당 게시글 번호
+	saveFolder VARCHAR(1000) NOT NULL,								-- 파일 저장 폴더
+	originNm VARCHAR(500) NOT NULL,									-- 파일 원래 이름
+	saveNm VARCHAR(500) NOT NULL,										-- 파일 저장 이름
+	uploadDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP	-- 파일 업로드 일자
+);
+
+CREATE TABLE boardComment(
+   cno INT PRIMARY KEY AUTO_INCREMENT,   							-- 댓글번호: 자동발생
+	boardNm VARCHAR(100) NOT NULL,									-- 해당 게시글 이름
+	seq INT NOT NULL,   													-- 해당 게시글 번호
+	author VARCHAR(20) NOT NULL,   									-- 댓글 작성자
+	content VARCHAR(1000) NOT NULL,   								-- 댓글 내용
+	resDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP   	-- 댓글 등록일
+);
+
+CREATE VIEW commentList AS (SELECT c.cno AS cno, c.boardNm AS boardNm, c.seq AS boardNo, c.author AS author, m.name AS name, c.content AS content, c.resDate AS resDate FROM boardComment c, member m WHERE c.author = m.id order BY c.cno ASC);
 
 CREATE TABLE MEMBER(
 	id VARCHAR(20) PRIMARY KEY,							-- 회원 아이디

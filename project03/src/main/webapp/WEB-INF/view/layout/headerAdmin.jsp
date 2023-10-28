@@ -26,7 +26,7 @@
                 <ul class="menu-list">
                     <li><a href="${path }/admin/memberList.do" <c:if test="${adminNum == 0 }">class="is-active"</c:if>>회원 관리</a></li>
                     <li><a href="${path }/admin/noticeList.do" <c:if test="${adminNum == 1 }">class="is-active"</c:if>>공지사항 관리</a></li>
-                    <li><a href="#" <c:if test="${adminNum == 2 }">class="is-active"</c:if>>학습자료실 관리</a></li>
+                    <li><a href="${path }/admin/fileBoardList.do" <c:if test="${adminNum == 2 }">class="is-active"</c:if>>학습자료실 관리</a></li>
                     <li><a href="#" <c:if test="${adminNum == 3 }">class="is-active"</c:if>>문의하기 관리</a></li>
                     <li><a href="${path }/admin/voteList.do" <c:if test="${adminNum == 4 }">class="is-active"</c:if>>투표 관리</a></li>
                 </ul>

@@ -4,7 +4,6 @@ import kr.co.teaspoon.dto.Board;
 import kr.co.teaspoon.dto.BoardVo;
 import kr.co.teaspoon.service.BoardServiceImpl;
 import kr.co.teaspoon.util.BoardPage;
-import kr.co.teaspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +16,8 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/notice/**")
-public class NoticeController {
+@RequestMapping("/fileBoard/**")
+public class FileBoardController {
 
     @Autowired
     private BoardServiceImpl boardService;
@@ -26,10 +25,10 @@ public class NoticeController {
     @Autowired
     HttpSession session;
 
-    private final String boardNm = "notice";
+    private final String boardNm = "fileBoard";
 
     @RequestMapping(value = "list.do", method = RequestMethod.GET)
-    public String noticeList(HttpServletRequest request, Model model) throws Exception {
+    public String fileBoardList(HttpServletRequest request, Model model) throws Exception {
 
         String type = request.getParameter("type");
         String keyword = request.getParameter("keyword");
@@ -45,50 +44,50 @@ public class NoticeController {
         page.makeLastPageNum(total);
         page.makePostStart(curPage, total);
 
-        List<BoardVo> noticeList = boardService.boardList(page);
+        List<BoardVo> fileBoardList = boardService.boardList(page);
 
         model.addAttribute("type", type);
         model.addAttribute("keyword", keyword);
         model.addAttribute("page", page);
         model.addAttribute("curPage", curPage);
-        model.addAttribute("noticeList", noticeList);
+        model.addAttribute("fileBoardList", fileBoardList);
 
-        return "/notice/noticeList";
+        return "/fileBoard/fileBoardList";
     }
 
     @RequestMapping(value = "detail.do", method = RequestMethod.GET)
-    public String noticeDetail(@RequestParam int no, Model model) throws Exception {
+    public String fileBoardDetail(@RequestParam int no, Model model) throws Exception {
 
         String sid = session.getAttribute("sid") != null ? (String) session.getAttribute("sid") : "";
 
         if(no != 0) {
-            BoardVo notice = boardService.boardDetail(no);
+            BoardVo fileBoard = boardService.boardDetail(no);
             if(!sid.equals("admin")) {
                 boardService.boardUpdateVisited(no);
-                notice.setVisited(notice.getVisited() + 1);
+                fileBoard.setVisited(fileBoard.getVisited() + 1);
             }
-            model.addAttribute("notice", notice);
-            return "/notice/noticeDetail";
+            model.addAttribute("fileBoard", fileBoard);
+            return "/fileBoard/fileBoardDetail";
         } else {
-            return "redirect:/notice/list.do";
+            return "redirect:/fileBoard/list.do";
         }
 
     }
 
     @RequestMapping(value = "add.do", method = RequestMethod.POST)
-    public String noticeInsert(HttpServletRequest request, Model model) throws Exception {
+    public String fileBoardInsert(HttpServletRequest request, Model model) throws Exception {
 
         String sid = (String) session.getAttribute("sid");
 
         if(sid != null && sid.equals("admin")) {
-            Board notice = new Board();
-            notice.setTitle(request.getParameter("title"));
-            notice.setContent(request.getParameter("content"));
-            notice.setBoardNm(boardNm);
-            notice.setAuthor(sid);
-            boardService.boardInsert(notice);
+            Board fileBoard = new Board();
+            fileBoard.setTitle(request.getParameter("title"));
+            fileBoard.setContent(request.getParameter("content"));
+            fileBoard.setBoardNm(boardNm);
+            fileBoard.setAuthor(sid);
+            boardService.boardInsert(fileBoard);
 
-            return "redirect:/admin/noticeList.do";
+            return "redirect:/admin/fileBoardList.do";
         } else {
             return "redirect:/";
         }
@@ -96,18 +95,18 @@ public class NoticeController {
     }
 
     @RequestMapping(value = "edit.do", method = RequestMethod.POST)
-    public String noticeUpload(HttpServletRequest request, Model model) throws Exception {
+    public String fileBoardUpload(HttpServletRequest request, Model model) throws Exception {
 
         String sid = (String) session.getAttribute("sid");
 
         if(sid != null && sid.equals("admin")) {
-            Board notice = new Board();
-            notice.setTitle(request.getParameter("title"));
-            notice.setContent(request.getParameter("content"));
-            notice.setSeq(Integer.parseInt(request.getParameter("no")));
-            boardService.boardUpdate(notice);
+            Board fileBoard = new Board();
+            fileBoard.setTitle(request.getParameter("title"));
+            fileBoard.setContent(request.getParameter("content"));
+            fileBoard.setSeq(Integer.parseInt(request.getParameter("no")));
+            boardService.boardUpdate(fileBoard);
 
-            return "redirect:/admin/noticeList.do";
+            return "redirect:/admin/fileBoardList.do";
         } else {
             return "redirect:/";
         }
@@ -115,13 +114,13 @@ public class NoticeController {
     }
 
     @RequestMapping(value = "delPro.do", method = RequestMethod.GET)
-    public String noticeDelete(@RequestParam int no, Model model) throws Exception {
+    public String fileBoardDelete(@RequestParam int no, Model model) throws Exception {
 
         String sid = (String) session.getAttribute("sid");
 
         if(no != 0 && sid != null && sid.equals("admin")) {
             boardService.boardDelete(no);
-            return "redirect:/admin/noticeList.do";
+            return "redirect:/admin/fileBoardList.do";
         } else {
             return "redirect:/";
         }

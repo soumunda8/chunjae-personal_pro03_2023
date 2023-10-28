@@ -1,9 +1,7 @@
 package kr.co.teaspoon.controller;
 
 import kr.co.teaspoon.dto.Member;
-import kr.co.teaspoon.service.AttendanceService;
 import kr.co.teaspoon.service.MemberService;
-import kr.co.teaspoon.service.NoticeService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
