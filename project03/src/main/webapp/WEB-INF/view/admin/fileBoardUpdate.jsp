@@ -39,7 +39,7 @@
                 </td>
             </tr>
             <tr>
-                <th class="has-text-centered">파일 업로드<br />(10MB 이하)<span class="btn pt-0 pl-1 pr-0" onclick="addFile()">(+)</span></th>
+                <th class="has-text-centered">파일 업로드<br />(10MB 이하)<span class="btn pt-0 pl-1 pr-0" onclick="addFile()" style="cursor:pointer">(+)</span></th>
                 <td class="file_area">
                     <c:forEach var="files" items="${fileList }" varStatus="status">
                         <p id="files${status.count}">${files.originNm } <button type="button" class="btn btn-primary px-2 py-0 ml-2" onclick="removeFiles(${files.fno }, ${status.count })" style="font-size:0.8rem;">삭제</button></p>

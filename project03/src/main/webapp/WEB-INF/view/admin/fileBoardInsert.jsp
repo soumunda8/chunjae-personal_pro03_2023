@@ -38,7 +38,7 @@
                 </td>
             </tr>
             <tr>
-                <th class="has-text-centered">파일 업로드<br />(10MB 이하)<span class="btn pt-0 pl-1 pr-0" onclick="addFile()">(+)</span></th>
+                <th class="has-text-centered">파일 업로드<br />(10MB 이하)<span class="btn pt-0 pl-1 pr-0" onclick="addFile()" style="cursor:pointer">(+)</span></th>
                 <td class="file_area">
                     <input type="file" class="form-control uploadFiles" name="uploadFiles" id="uploadFiles1" multiple>
                 </td>
