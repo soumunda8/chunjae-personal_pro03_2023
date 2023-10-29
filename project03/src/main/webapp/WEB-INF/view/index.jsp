@@ -20,12 +20,36 @@
             </div>
         </div>
     </section>
-    <div class="container is-fullhd">
-        <h2>${title }</h2>
-        <div class="contents">
-            이름 : ${name }
-            <hr>
-            현재 : ${today }
+    <div class="container is-fullhd my-5">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child box">
+                            <p class="title">공지사항</p>
+                            <c:forEach var="notice" items="${noticeList }" varStatus="status">
+                                <p class="subtitle"><a href="${path }/notice/detail.do?no=${notice.seq }">${notice.title }</a></p>
+                            </c:forEach>
+                        </article>
+                    </div>
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child box">
+                            <p class="title">학습자료실</p>
+                            <c:forEach var="fileBoard" items="${fileBoardList }" varStatus="status">
+                                <p class="subtitle"><a href="${path }/fileBoard/detail.do?no=${fileBoard.seq }">${fileBoard.title }</a></p>
+                            </c:forEach>
+                        </article>
+                    </div>
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child box">
+                            <p class="title">소통게시판</p>
+                            <c:forEach var="freeBoard" items="${freeBoardList }" varStatus="status">
+                                <p class="subtitle"><a href="${path }/freeBoard/detail.do?no=${freeBoard.seq }">${freeBoard.title }</a></p>
+                            </c:forEach>
+                        </article>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

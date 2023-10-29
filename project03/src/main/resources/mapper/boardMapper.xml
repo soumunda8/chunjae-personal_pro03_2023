@@ -39,6 +39,10 @@
         </where>
     </select>
 
+    <select id="boardForMain" resultType="kr.co.teaspoon.dto.BoardVo">
+        select * from boardList where boardNm = #{boardNm} ORDER BY regDate DESC LIMIT 4;
+    </select>
+
     <select id="boardDetail" resultType="kr.co.teaspoon.dto.BoardVo">
         select * from boardList where seq = #{seq}
     </select>

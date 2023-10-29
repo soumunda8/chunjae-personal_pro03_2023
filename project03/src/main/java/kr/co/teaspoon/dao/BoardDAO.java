@@ -9,6 +9,7 @@ import java.util.List;
 public interface BoardDAO {
 
     public List<BoardVo> boardList(Page page) throws Exception;
+    public List<BoardVo> boardForMain(String boardNm) throws Exception;
     public int boardListCount(Page page) throws Exception;
     public BoardVo boardDetail(int seq) throws Exception;
     public BoardVo boardDetailLast() throws Exception;

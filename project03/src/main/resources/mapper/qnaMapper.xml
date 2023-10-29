@@ -6,11 +6,11 @@
 <mapper namespace="qna">
 
     <select id="qnaAllList" resultType="kr.co.teaspoon.dto.QnaVo">
-        SELECT * FROM qnaList ORDER BY answerYn DESC;
+        SELECT * FROM qnaList ORDER BY answerYn ASC
     </select>
 
     <select id="qnaList" resultType="kr.co.teaspoon.dto.QnaVo">
-        SELECT * FROM qnaList WHERE author = #{author}
+        SELECT * FROM qnaList WHERE author = #{author} ORDER BY answerYn ASC
     </select>
 
     <select id="getQna" resultType="kr.co.teaspoon.dto.QnaVo">

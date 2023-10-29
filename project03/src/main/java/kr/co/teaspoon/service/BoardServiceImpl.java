@@ -21,6 +21,11 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public List<BoardVo> boardForMain(String boardNm) throws Exception {
+        return boardDAO.boardForMain(boardNm);
+    }
+
+    @Override
     public int boardListCount(Page page) throws Exception {
         return boardDAO.boardListCount(page);
     }
