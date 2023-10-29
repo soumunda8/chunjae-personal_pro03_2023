@@ -22,13 +22,6 @@
 </section>
 <div class="container is-fullhd">
     <section class="section">
-        <div class="tabs is-centered">
-            <ul>
-                <li><a href="${path }/user/myPage.do">나의 정보</a></li>
-                <li><a href="${path }/vote/getMyList.do">나의 투표 내역</a></li>
-                <li class="is-active"><a>나의 출석</a></li>
-            </ul>
-        </div>
         <section class="section">
             <h2 class="title has-text-centered">출석체크</h2>
 
@@ -116,10 +109,23 @@
                 </div>
             </div>
 
-            <c:if test="${!pass }">
+            <c:if test="${!pass && sid ne null }">
                 <div class="buttons is-centered">
                     <a href="${path }/attend/add.do" class="button is-mainColor">출석 체크</a>
                 </div>
+            </c:if>
+            <c:if test="${sid eq null}">
+                <div>
+                    <div class="buttons is-centered">
+                        <button class="button is-mainColor" onclick="checkAttendance()">출석 체크</button>
+                    </div>
+                </div>
+                <script>
+                    function checkAttendance() {
+                        alert("로그인한 회원만 가능합니다.");
+                        location.href = '${path }/user/login.do';
+                    }
+                </script>
             </c:if>
         </section>
     </section>

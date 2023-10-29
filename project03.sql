@@ -24,7 +24,7 @@ CREATE TABLE fileBoard(
 	uploadDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP	-- 파일 업로드 일자
 );
 
-CREATE TABLE commentBoard(
+CREATE TABLE comment(
    cno INT PRIMARY KEY AUTO_INCREMENT,   							-- 댓글번호: 자동발생
 	boardNm VARCHAR(100) NOT NULL,									-- 해당 게시글 이름
 	seq INT NOT NULL,   													-- 해당 게시글 번호
@@ -33,7 +33,7 @@ CREATE TABLE commentBoard(
 	resDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP   	-- 댓글 등록일
 );
 
-CREATE VIEW commentList AS (SELECT c.cno AS cno, c.boardNm AS boardNm, c.seq AS boardNo, c.author AS author, m.name AS name, c.content AS content, c.resDate AS resDate FROM commentBoard c, member m WHERE c.author = m.id order BY c.cno ASC);
+CREATE VIEW commentList AS (SELECT c.cno AS cno, c.boardNm AS boardNm, c.seq AS boardNo, c.author AS author, m.name AS name, c.content AS content, c.resDate AS resDate FROM comment c, member m WHERE c.author = m.id order BY c.cno ASC);
 
 CREATE TABLE MEMBER(
 	id VARCHAR(20) PRIMARY KEY,							-- 회원 아이디
@@ -88,3 +88,16 @@ CREATE TABLE attendance (
 	dateYearMonth VARCHAR(6) NOT NULL,								-- 해당 년월
 	nowDay VARCHAR(2) NOT NULL											-- 출석 날짜
 );
+
+CREATE TABLE qna(
+	qno INT AUTO_INCREMENT PRIMARY KEY,	   						-- 문의 번호 : 자동증가
+	title VARCHAR(100) NOT NULL,   									-- 문의 제목
+	content VARCHAR(1000) NOT NULL,   								-- 문의 내용
+	author VARCHAR(20) NOT NULL,   									-- 문의 작성자
+	resDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,		-- 문의 등록일자
+	answer VARCHAR(1000),   											-- 답변 내용
+	answerYn BOOLEAN DEFAULT FALSE, 									-- 답변 여부
+	answerDate TIMESTAMP													-- 답변 등록일자
+);
+
+CREATE VIEW qnaList AS (SELECT q.qno AS qno, q.title AS title, q.content AS content, q.answer AS answer, q.author AS author, m.name AS name, q.resDate AS resDate, q.answerDate AS answerDate, q.answerYn AS answerYn FROM qna q, member m WHERE q.author=m.id order BY q.qno ASC);

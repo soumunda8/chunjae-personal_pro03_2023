@@ -25,8 +25,8 @@
         <div class="tabs is-centered">
             <ul>
                 <li><a href="${path }/user/myPage.do">나의 정보</a></li>
-                <li class="is-active"><a>나의 투표 내역</a></li>
-                <li><a href="${path }/qna/myQnaList.do">나의 문의 내역</a></li>
+                <li><a href="${path }/vote/getMyList.do">나의 투표 내역</a></li>
+                <li class="is-active"><a>나의 문의 내역</a></li>
             </ul>
         </div>
         <section class="section">
@@ -34,27 +34,39 @@
             <div class="columns is-mobile">
                 <div class="column is-three-fifths is-offset-one-fifth">
                     <table class="table is-fullwidth is-bordered">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>제목</th>
-                        </tr>
-                        </thead>
                         <tbody>
-                        <c:forEach var="vote" items="${voteList }" varStatus="status">
-                            <tr>
-                                <td>${status.count }</td>
-                                <td><a href="${path }/vote/get.do?vno=${vote.vno }"><c:if test="${!vote.stateYn }">[완료] </c:if>${vote.title }</a></td>
-                            </tr>
-                        </c:forEach>
-                        <c:if test="${empty voteList }">
-                            <tr>
-                                <td colspan="2">진행한 투표가 없습니다.</td>
-                            </tr>
-                        </c:if>
+                        <tr>
+                            <th>문의 제목</th>
+                            <td>${qna.title }</td>
+                        </tr>
+                        <tr>
+                            <th>문의 제목</th>
+                            <td>${qna.content }</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <c:if test="${qna.answerYn }">
+                <div class="columns is-mobile pt-2">
+                    <div class="column is-three-fifths is-offset-one-fifth">
+                        <table class="table is-fullwidth is-bordered">
+                            <tbody>
+                            <tr>
+                                <th>문의 답변</th>
+                                <td>${qna.answer }</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </c:if>
+            <div class="buttons is-centered">
+                <a href="${path }/qna/myQnaList.do" class="button is-mainColor">목록</a>
+                <c:if test="${!qna.answerYn }">
+                    <a href="${path }/qna/edit.do?no=${qna.qno }" class="button is-success">수정</a>
+                    <a href="${path }/qna/delPro.do?no=${qna.qno }" class="button is-mainColor">삭제</a>
+                </c:if>
             </div>
         </section>
     </section>

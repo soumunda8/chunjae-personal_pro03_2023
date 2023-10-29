@@ -5,12 +5,13 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardComment {
+public class CommentVo {
 
     private int cno;
     private String boardNm;
-    private int seq;
+    private int boardNo;
     private String author;
+    private String name;
     private String content;
     private String resDate;
 

@@ -6,7 +6,7 @@
 <mapper namespace="board">
     <select id="boardList" resultType="kr.co.teaspoon.dto.BoardVo">
         <![CDATA[
-        select * from board
+        select * from boardList
         ]]>
         <where>
             boardNm = #{boardNm}
@@ -19,13 +19,13 @@
             </if>
         </where>
         <![CDATA[
-        order by seq asc LIMIT #{postStart}, #{postCount}
+        order by seq desc LIMIT #{postStart}, #{postCount}
         ]]>
     </select>
 
     <select id="boardListCount" resultType="integer">
         <![CDATA[
-        select count(*) from board
+        select count(*) from boardList
         ]]>
         <where>
             boardNm = #{boardNm}
@@ -40,11 +40,11 @@
     </select>
 
     <select id="boardDetail" resultType="kr.co.teaspoon.dto.BoardVo">
-        select * from board where seq = #{seq}
+        select * from boardList where seq = #{seq}
     </select>
 
     <select id="boardDetailLast" resultType="kr.co.teaspoon.dto.BoardVo">
-        select * from board ORDER BY regDate DESC LIMIT 1
+        select * from boardList ORDER BY regDate DESC LIMIT 1
     </select>
 
     <insert id="boardInsert">

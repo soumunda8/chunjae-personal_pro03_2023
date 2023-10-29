@@ -2,6 +2,7 @@ package kr.co.teaspoon.controller;
 
 import kr.co.teaspoon.dto.Board;
 import kr.co.teaspoon.dto.BoardVo;
+import kr.co.teaspoon.service.BoardService;
 import kr.co.teaspoon.service.BoardServiceImpl;
 import kr.co.teaspoon.util.BoardPage;
 import kr.co.teaspoon.util.Page;
@@ -21,7 +22,7 @@ import java.util.List;
 public class NoticeController {
 
     @Autowired
-    private BoardServiceImpl boardService;
+    private BoardService boardService;
 
     @Autowired
     HttpSession session;

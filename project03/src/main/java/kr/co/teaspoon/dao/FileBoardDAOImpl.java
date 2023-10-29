@@ -34,7 +34,7 @@ public class FileBoardDAOImpl implements FileBoardDAO {
     }
 
     @Override
-    public void filesDeleteAll(int seq) throws Exception {
-        sqlSession.delete("fileBoard.filesDeleteAll", seq);
+    public void filesDeleteAll(FileBoard fileBoard) throws Exception {
+        sqlSession.delete("fileBoard.filesDeleteAll", fileBoard);
     }
 }

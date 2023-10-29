@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna">
+
+    <select id="qnaAllList" resultType="kr.co.teaspoon.dto.QnaVo">
+        SELECT * FROM qnaList ORDER BY answerYn DESC;
+    </select>
+
+    <select id="qnaList" resultType="kr.co.teaspoon.dto.QnaVo">
+        SELECT * FROM qnaList WHERE author = #{author}
+    </select>
+
+    <select id="getQna" resultType="kr.co.teaspoon.dto.QnaVo">
+        SELECT * FROM qnaList WHERE qno = #{qno}
+    </select>
+
+    <insert id="qnaInsert">
+        INSERT INTO qna(title, content, author, resDate) VALUES(#{title}, #{content}, #{author}, DEFAULT)
+    </insert>
+
+    <update id="qnaUpdate">
+        UPDATE qna SET title = #{title}, content = #{content} WHERE qno = #{qno}
+    </update>
+
+    <update id="answerUpdate">
+        UPDATE qna SET answer = #{answer}, answerYn = TRUE, answerDate = CURRENT_TIMESTAMP WHERE qno = #{qno}
+    </update>
+
+    <delete id="qnaDelete">
+        DELETE FROM qna WHERE qno = #{qno}
+    </delete>
+
+</mapper>

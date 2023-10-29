@@ -48,12 +48,16 @@
     <bean id="boardDAO" class="kr.co.teaspoon.dao.BoardDAOImpl" />
     <bean id="fileBoardService" class="kr.co.teaspoon.service.FileBoardServiceImpl" />
     <bean id="fileBoardDAO" class="kr.co.teaspoon.dao.FileBoardDAOImpl" />
+    <bean id="commentService" class="kr.co.teaspoon.service.CommentServiceImpl" />
+    <bean id="commentDAO" class="kr.co.teaspoon.dao.CommentDAOImpl" />
     <bean id="memberService" class="kr.co.teaspoon.service.MemberServiceImpl" />
     <bean id="memberDAO" class="kr.co.teaspoon.dao.MemberDAOImpl" />
     <bean id="voteService" class="kr.co.teaspoon.service.VoteServiceImpl" />
     <bean id="voteDAO" class="kr.co.teaspoon.dao.VoteDAOImpl" />
     <bean id="attendanceService" class="kr.co.teaspoon.service.AttendanceServiceImpl" />
     <bean id="attendanceDAO" class="kr.co.teaspoon.dao.AttendanceDAOImpl" />
+    <bean id="qnaService" class="kr.co.teaspoon.service.QnaServiceImpl" />
+    <bean id="qnaDAO" class="kr.co.teaspoon.dao.QnaDAOImpl" />
 
     <!-- @Transactional 어노테이션 처리 -->
     <tx:annotation-driven transaction-manager="transactionManager" />

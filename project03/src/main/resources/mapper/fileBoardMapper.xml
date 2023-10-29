@@ -22,7 +22,7 @@
     </delete>
 
     <delete id="filesDeleteAll">
-        DELETE FROM fileBoard WHERE seq = #{seq}
+        DELETE FROM fileBoard WHERE seq = #{seq} AND boardNm = #{boardNm}
     </delete>
 
 </mapper>

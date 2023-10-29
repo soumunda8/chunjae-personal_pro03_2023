@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="comment">
+
+    <select id="commentList" resultType="kr.co.teaspoon.dto.CommentVo">
+        SELECT * FROM commentList WHERE boardNo = #{boardNo} AND boardNm = #{boardNm}
+    </select>
+
+    <select id="getComment" resultType="kr.co.teaspoon.dto.CommentVo">
+        SELECT * FROM commentList WHERE cno = #{cno}
+    </select>
+
+    <select id="commentLast" resultType="kr.co.teaspoon.dto.CommentVo">
+        SELECT * FROM commentList ORDER BY resDate DESC LIMIT 1
+    </select>
+
+    <insert id="commentInsert">
+        INSERT INTO comment VALUES(DEFAULT, #{boardNm}, #{seq}, #{author}, #{content}, DEFAULT)
+    </insert>
+
+    <update id="commentUpdate">
+        UPDATE comment SET content = #{content} WHERE cno = #{cno}
+    </update>
+
+    <delete id="commentDelete">
+        DELETE FROM comment WHERE cno = #{cno}
+    </delete>
+
+    <delete id="commentDeleteAll">
+        DELETE FROM comment WHERE seq = #{seq} AND boardNm = #{boardNm}
+    </delete>
+
+</mapper>

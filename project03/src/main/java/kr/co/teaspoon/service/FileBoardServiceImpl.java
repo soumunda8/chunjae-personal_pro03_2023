@@ -34,8 +34,8 @@ public class FileBoardServiceImpl implements FileBoardService {
     }
 
     @Override
-    public void filesDeleteAll(int seq) throws Exception {
-        fileBoardDAO.filesDeleteAll(seq);
+    public void filesDeleteAll(FileBoard fileBoard) throws Exception {
+        fileBoardDAO.filesDeleteAll(fileBoard);
     }
 
 }

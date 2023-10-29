@@ -26,7 +26,7 @@
             <ul>
                 <li class="is-active"><a>나의 정보</a></li>
                 <li><a href="${path }/vote/getMyList.do">나의 투표 내역</a></li>
-                <li><a href="${path }/attend/getMyAttend.do">나의 출석</a></li>
+                <li><a href="${path }/qna/myQnaList.do">나의 문의 내역</a></li>
             </ul>
         </div>
         <section class="section">

@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <jsp:include page="../layout/head.jsp" />
-    <title>티스푼::공지사항</title>
+    <title>티스푼::소통게시판</title>
     <link rel="stylesheet" href="${path }/resources/css/sub.css">
 </head>
 <body>
@@ -15,16 +15,16 @@
 <section class="hero is-info">
     <div class="container is-fullhd">
         <div class="hero-body has-text-centered">
-            <p class="title">공지사항</p>
-            <p class="subtitle">티스푼에 관한 정보를 확인해보세요.</p>
+            <p class="title">소통게시판</p>
+            <p class="subtitle">티스푼에 관해 서로 많은 정보를 나누세요.</p>
         </div>
     </div>
 </section>
 <div class="container is-fullhd">
     <section class="section">
         <section class="section">
-            <h2 class="title has-text-centered">공지사항</h2>
-            <form action="${path }/notice/list.do" method="get" class="field has-addons has-addons-right">
+            <h2 class="title has-text-centered">소통게시판</h2>
+            <form action="${path }/freeBoard/list.do" method="get" class="field has-addons has-addons-right">
                 <p class="control">
                 <span class="select">
                     <select id="type" name="type">
@@ -50,35 +50,37 @@
                 <tr>
                     <th class="has-text-centered">#</th>
                     <th class="has-text-centered">제목</th>
+                    <th class="has-text-centered">작성자</th>
                     <th class="has-text-centered">작성일자</th>
                     <th class="has-text-centered">조회수</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="notice" items="${noticeList }" varStatus="status">
+                <c:forEach var="freeBoard" items="${freeBoardList }" varStatus="status">
                     <tr>
                         <td class="has-text-centered">${status.count }</td>
-                        <td><a href="${path }/notice/detail.do?no=${notice.seq }">${notice.title }</a></td>
+                        <td><a href="${path }/freeBoard/detail.do?no=${freeBoard.seq }">${freeBoard.title }</a></td>
+                        <td class="has-text-centered">${freeBoard.name }</td>
                         <td class="has-text-centered">
-                            <fmt:parseDate value="${notice.regDate }" var="regDate" pattern="yyyy-MM-dd HH:mm:ss" />
+                            <fmt:parseDate value="${freeBoard.regDate }" var="regDate" pattern="yyyy-MM-dd HH:mm:ss" />
                             <fmt:formatDate value="${regDate }" pattern="yyyy-MM-dd" />
                         </td>
-                        <td class="has-text-centered">${notice.visited }</td>
+                        <td class="has-text-centered">${freeBoard.visited }</td>
                     </tr>
                 </c:forEach>
-                <c:if test="${empty noticeList }">
+                <c:if test="${empty freeBoardList }">
                     <tr>
-                        <td colspan="4" class="has-text-centered">등록된 공지사항이 없습니다.</td>
+                        <td colspan="5" class="has-text-centered">등록된 소통게시판이 없습니다.</td>
                     </tr>
                 </c:if>
                 </tbody>
             </table>
             <nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
                 <c:if test="${curPage > page.pageCount }">
-                    <a href="${path }/notice/list.do?page=${page.blockStartNum - 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-previous">Previous</a>
+                    <a href="${path }/freeBoard/list.do?page=${page.blockStartNum - 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-previous">Previous</a>
                 </c:if>
                 <c:if test="${page.blockLastNum < page.totalPageCount }">
-                    <a href="${path }/notice/list.do?page=${page.blockLastNum + 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-next">Next page</a>
+                    <a href="${path }/freeBoard/list.do?page=${page.blockLastNum + 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-next">Next page</a>
                 </c:if>
 
                 <ul class="pagination-list">
@@ -86,18 +88,24 @@
                         <c:choose>
                             <c:when test="${i == curPage }">
                                 <li>
-                                    <a href="${path }/notice/list.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link is-current" aria-label="Page ${i }" aria-current="page">${i }</a>
+                                    <a href="${path }/freeBoard/list.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link is-current" aria-label="Page ${i }" aria-current="page">${i }</a>
                                 </li>
                             </c:when>
                             <c:otherwise>
                                 <li>
-                                    <a href="${path }/notice/list.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link" aria-label="Page ${i }" aria-current="page">${i }</a>
+                                    <a href="${path }/freeBoard/list.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link" aria-label="Page ${i }" aria-current="page">${i }</a>
                                 </li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                 </ul>
             </nav>
+
+            <c:if test="${sid ne null}">
+            <div class="buttons is-right">
+                <a href="${path }/freeBoard/add.do?no=${freeBoard.seq }" class="button is-mainColor">등록</a>
+            </div>
+            </c:if>
         </section>
     </section>
 </div>

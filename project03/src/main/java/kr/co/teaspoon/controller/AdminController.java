@@ -1,10 +1,7 @@
 package kr.co.teaspoon.controller;
 
 import kr.co.teaspoon.dto.*;
-import kr.co.teaspoon.service.FileBoardService;
-import kr.co.teaspoon.service.MemberService;
-import kr.co.teaspoon.service.BoardService;
-import kr.co.teaspoon.service.VoteService;
+import kr.co.teaspoon.service.*;
 import kr.co.teaspoon.util.BoardPage;
 import kr.co.teaspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +30,9 @@ public class AdminController {
 
     @Autowired
     private VoteService voteService;
+
+    @Autowired
+    private QnaService qnaService;
 
     @Autowired
     HttpSession session;
@@ -249,6 +249,82 @@ public class AdminController {
 
             model.addAttribute("adminNum", 2);
             return "/admin/fileBoardUpdate";
+        } else {
+            return "redirect:/";
+        }
+
+    }
+
+    @RequestMapping(value = "qnaList.do", method = RequestMethod.GET)
+    public String getQnaList(HttpServletRequest request, Model model) throws Exception {
+
+        String sid = (String) session.getAttribute("sid");
+
+        if(sid != null && sid.equals("admin")) {
+
+            List<QnaVo> qnaList = qnaService.qnaAllList();
+
+            model.addAttribute("adminNum", 3);
+            model.addAttribute("qnaList", qnaList);
+
+            return "/admin/qnaList";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "getQna.do", method = RequestMethod.GET)
+    public String getQnaDetail(@RequestParam int no, Model model) throws Exception {
+
+        String sid = (String) session.getAttribute("sid");
+
+        if(sid != null && sid.equals("admin")) {
+            model.addAttribute("adminNum", 3);
+            if(no != 0) {
+                QnaVo qna = qnaService.getQna(no);
+                model.addAttribute("qna", qna);
+                return "/admin/qnaDetail";
+            } else {
+                return "redirect:/admin/qnaList.do";
+            }
+        } else {
+            return "redirect:/";
+        }
+
+    }
+
+    @RequestMapping(value = "addAnswer.do", method = RequestMethod.GET)
+    public String getQnaAddAnswer(@RequestParam int no, Model model) throws Exception {
+
+        String sid = (String) session.getAttribute("sid");
+
+        if(sid != null && sid.equals("admin")) {
+            model.addAttribute("adminNum", 3);
+            if(no != 0) {
+                QnaVo qna = qnaService.getQna(no);
+                model.addAttribute("qna", qna);
+                return "/admin/qnaAnswerUpdate";
+            } else {
+                return "redirect:/admin/getQna.do?no="+no;
+            }
+        } else {
+            return "redirect:/";
+        }
+
+    }
+
+    @RequestMapping(value = "addAnswer.do", method = RequestMethod.POST)
+    public String getQnaAddAnswerPro(HttpServletRequest request, Model model) throws Exception {
+
+        String sid = (String) session.getAttribute("sid");
+        int qno = request.getParameter("no") != null ? Integer.parseInt(request.getParameter("no")) : 0;
+
+        if(qno != 0 && sid != null && sid.equals("admin")) {
+            Qna qna = new Qna();
+            qna.setQno(qno);
+            qna.setAnswer(request.getParameter("answer"));
+            qnaService.answerUpdate(qna);
+            return "redirect:/admin/getQna.do?no="+qno;
         } else {
             return "redirect:/";
         }

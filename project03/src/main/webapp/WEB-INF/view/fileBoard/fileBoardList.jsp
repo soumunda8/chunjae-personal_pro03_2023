@@ -57,13 +57,13 @@
                 <tbody>
                 <c:forEach var="fileBoard" items="${fileBoardList }" varStatus="status">
                     <tr>
-                        <td>${status.count }</td>
+                        <td class="has-text-centered">${status.count }</td>
                         <td><a href="${path }/fileBoard/detail.do?no=${fileBoard.seq }">${fileBoard.title }</a></td>
-                        <td>
+                        <td class="has-text-centered">
                             <fmt:parseDate value="${fileBoard.regDate }" var="regDate" pattern="yyyy-MM-dd HH:mm:ss" />
                             <fmt:formatDate value="${regDate }" pattern="yyyy-MM-dd" />
                         </td>
-                        <td>${fileBoard.visited }</td>
+                        <td class="has-text-centered">${fileBoard.visited }</td>
                     </tr>
                 </c:forEach>
                 <c:if test="${empty fileBoardList }">

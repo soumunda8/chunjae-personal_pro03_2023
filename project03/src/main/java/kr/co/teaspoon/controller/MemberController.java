@@ -1,7 +1,9 @@
 package kr.co.teaspoon.controller;
 
 import kr.co.teaspoon.dto.Member;
+import kr.co.teaspoon.dto.QnaVo;
 import kr.co.teaspoon.service.MemberService;
+import kr.co.teaspoon.service.QnaService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user/*")
@@ -22,6 +25,9 @@ public class MemberController {
 
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private QnaService qnaService;
 
     @Autowired
     HttpSession session;

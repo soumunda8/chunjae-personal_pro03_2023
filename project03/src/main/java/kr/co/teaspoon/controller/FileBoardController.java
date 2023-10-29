@@ -233,7 +233,7 @@ public class FileBoardController {
                     file.delete();
                 }
             }
-            fileBoardService.filesDeleteAll(no);
+            fileBoardService.filesDeleteAll(fileDTO);
             boardService.boardDelete(no);
             return "redirect:/admin/fileBoardList.do";
         } else {
