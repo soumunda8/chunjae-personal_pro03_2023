@@ -1,0 +1,220 @@
+<mxfile host="app.diagrams.net" modified="2023-10-29T13:55:43.066Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="matTVBxY7wUDDB60ZuiL" version="22.0.8" type="device">
+  <diagram id="FxvBT6US9hTsrmbxhvwM" name="페이지-1">
+    <mxGraphModel dx="5053" dy="2915" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Vote&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getVisited(): int&lt;br/&gt;+ setUseYn(boolean): void&lt;br/&gt;+ setStateYn(boolean): void&lt;br/&gt;+ setVno(int): void&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ setStartDate(String): void&lt;br/&gt;+ getVno(): int&lt;br/&gt;+ getTitle(): String&lt;br/&gt;+ toString(): String&lt;br/&gt;+ setVisited(int): void&lt;br/&gt;+ getAddPt(): int&lt;br/&gt;+ setFinishDate(String): void&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ setContent(String): void&lt;br/&gt;+ setAddPt(int): void&lt;br/&gt;+ setTitle(String): void&lt;br/&gt;+ getContent(): String&lt;br/&gt;+ getRegDate(): String&lt;br/&gt;+ getStartDate(): String&lt;br/&gt;+ setRegDate(String): void&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ getFinishDate(): String&lt;br/&gt;+ isUseYn(): boolean&lt;br/&gt;+ isStateYn(): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-1625" y="208" width="211" height="583" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-5" target="oyYEWW1cMjYgj1d-RSy1-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-5" target="oyYEWW1cMjYgj1d-RSy1-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-5" target="oyYEWW1cMjYgj1d-RSy1-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1327" y="161" />
+              <mxPoint x="-851" y="161" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;VoteController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ voteList(HttpServletRequest, Model): String&lt;br/&gt;+ voteDetail(HttpServletRequest, Model): String&lt;br/&gt;+ voteInsert(HttpServletRequest, Model): String&lt;br/&gt;+ voteUseUpdate(int, Model): String&lt;br/&gt;+ voteAnswerDelete(int, int, Model): String&lt;br/&gt;+ voteUpdate(HttpServletRequest, Model): String&lt;br/&gt;+ voteFinalUpdate(int, Model): String&lt;br/&gt;+ voteMyList(HttpServletRequest, Model): String&lt;br/&gt;+ voteAnswerInsert(HttpServletRequest, Model): String&lt;br/&gt;+ voteUserInsert(int, int, int, HttpServletRequest, HttpServletResponse): String&lt;br/&gt;+ voteAnswerUpdate(HttpServletRequest, Model): String&lt;br/&gt;+ voteDelete(int, Model): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-1554" y="-192" width="455" height="307" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;VoteCountVo&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getCnt(): int&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getLno(): int&lt;br/&gt;+ getVno(): int&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ getTitle(): String&lt;br/&gt;+ setLno(int): void&lt;br/&gt;+ setVno(int): void&lt;br/&gt;+ toString(): String&lt;br/&gt;+ setTitle(String): void&lt;br/&gt;+ setCnt(int): void&lt;br/&gt;+ equals(Object): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-1400" y="208" width="209" height="307" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;VoteDAO&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ voteUpdateUse(int): void&lt;br/&gt;+ voteEdit(Vote): void&lt;br/&gt;+ voteVisitCount(int): void&lt;br/&gt;+ voteAnswerInsert(VoteList): void&lt;br/&gt;+ voteMyList(String): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteUpdateState(int): void&lt;br/&gt;+ voteAllListForAdmin(Page): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteMaxCountList(int): VoteCountVo&lt;br/&gt;+ voteUserDelete(VoteUser): void&lt;br/&gt;+ voteAllList(Page): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteAnswerDelete(int): void&lt;br/&gt;+ voteDetail(int): Vote&lt;br/&gt;+ voteUserCnt(int): int&lt;br/&gt;+ totalCountForAdmin(Page): int&lt;br/&gt;+ voteUserList(VoteUser): VoteUser&lt;br/&gt;+ voteCountList(int): List&amp;lt;VoteCountVo&amp;gt;&lt;br/&gt;+ voteAllAnswerDelete(int): void&lt;br/&gt;+ voteInsert(Vote): void&lt;br/&gt;+ voteFinalInsert(VoteCountVo): void&lt;br/&gt;+ voteAnswerEdit(VoteList): void&lt;br/&gt;+ voteUserInsert(VoteUser): void&lt;br/&gt;+ totalCount(Page): int&lt;br/&gt;+ voteDelete(int): void&lt;br/&gt;+ voteAnswerList(int): List&amp;lt;VoteList&amp;gt;&lt;br/&gt;+ voteCountCnt(int): int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-721" y="-470" width="291" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;VoteDAOImpl&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ totalCount(Page): int&lt;br/&gt;+ voteEdit(Vote): void&lt;br/&gt;+ voteAnswerList(int): List&amp;lt;VoteList&amp;gt;&lt;br/&gt;+ voteUserDelete(VoteUser): void&lt;br/&gt;+ voteDetail(int): Vote&lt;br/&gt;+ voteAnswerEdit(VoteList): void&lt;br/&gt;+ voteMyList(String): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteMaxCountList(int): VoteCountVo&lt;br/&gt;+ totalCountForAdmin(Page): int&lt;br/&gt;+ voteUserCnt(int): int&lt;br/&gt;+ voteCountList(int): List&amp;lt;VoteCountVo&amp;gt;&lt;br/&gt;+ voteUpdateUse(int): void&lt;br/&gt;+ voteUserList(VoteUser): VoteUser&lt;br/&gt;+ voteCountCnt(int): int&lt;br/&gt;+ voteInsert(Vote): void&lt;br/&gt;+ voteAnswerDelete(int): void&lt;br/&gt;+ voteAnswerInsert(VoteList): void&lt;br/&gt;+ voteDelete(int): void&lt;br/&gt;+ voteVisitCount(int): void&lt;br/&gt;+ voteAllAnswerDelete(int): void&lt;br/&gt;+ voteAllList(Page): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteUserInsert(VoteUser): void&lt;br/&gt;+ voteUpdateState(int): void&lt;br/&gt;+ voteFinalInsert(VoteCountVo): void&lt;br/&gt;+ voteAllListForAdmin(Page): List&amp;lt;Vote&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-721" y="208" width="291" height="606" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;VoteList&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getLno(): int&lt;br/&gt;+ getVno(): int&lt;br/&gt;+ getTitle(): String&lt;br/&gt;+ setLno(int): void&lt;br/&gt;+ toString(): String&lt;br/&gt;+ setVno(int): void&lt;br/&gt;+ setTitle(String): void&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ hashCode(): int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-955" y="208" width="209" height="261" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;VoteService&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ totalCount(Page): int&lt;br/&gt;+ voteUserCnt(int): int&lt;br/&gt;+ voteUserDelete(VoteUser): void&lt;br/&gt;+ voteInsert(Vote): void&lt;br/&gt;+ voteVisitCount(int): void&lt;br/&gt;+ voteAnswerList(int): List&amp;lt;VoteList&amp;gt;&lt;br/&gt;+ voteDetail(int): Vote&lt;br/&gt;+ voteUpdateUse(int): void&lt;br/&gt;+ voteDelete(int): void&lt;br/&gt;+ voteMaxCountList(int): VoteCountVo&lt;br/&gt;+ voteMyList(String): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteFinalInsert(VoteCountVo): void&lt;br/&gt;+ voteUpdateState(int): void&lt;br/&gt;+ voteAnswerInsert(VoteList): void&lt;br/&gt;+ voteUserInsert(VoteUser): void&lt;br/&gt;+ voteAnswerEdit(VoteList): void&lt;br/&gt;+ voteAllList(Page): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteAllListForAdmin(Page): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteUserList(VoteUser): VoteUser&lt;br/&gt;+ voteAllAnswerDelete(int): void&lt;br/&gt;+ voteCountCnt(int): int&lt;br/&gt;+ voteAnswerDelete(int): void&lt;br/&gt;+ totalCountForAdmin(Page): int&lt;br/&gt;+ voteEdit(Vote): void&lt;br/&gt;+ voteCountList(int): List&amp;lt;VoteCountVo&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-1990" y="-480" width="291" height="616" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-11" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;VoteServiceImpl&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ voteAnswerList(int): List&amp;lt;VoteList&amp;gt;&lt;br/&gt;+ voteMyList(String): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteUserList(VoteUser): VoteUser&lt;br/&gt;+ voteAllAnswerDelete(int): void&lt;br/&gt;+ voteMaxCountList(int): VoteCountVo&lt;br/&gt;+ voteAnswerInsert(VoteList): void&lt;br/&gt;+ totalCount(Page): int&lt;br/&gt;+ voteDetail(int): Vote&lt;br/&gt;+ voteAllList(Page): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteUpdateUse(int): void&lt;br/&gt;+ voteFinalInsert(VoteCountVo): void&lt;br/&gt;+ voteAnswerDelete(int): void&lt;br/&gt;+ voteVisitCount(int): void&lt;br/&gt;+ voteAllListForAdmin(Page): List&amp;lt;Vote&amp;gt;&lt;br/&gt;+ voteUserCnt(int): int&lt;br/&gt;+ voteUpdateState(int): void&lt;br/&gt;+ voteCountList(int): List&amp;lt;VoteCountVo&amp;gt;&lt;br/&gt;+ voteUserDelete(VoteUser): void&lt;br/&gt;+ voteInsert(Vote): void&lt;br/&gt;+ voteUserInsert(VoteUser): void&lt;br/&gt;+ voteCountCnt(int): int&lt;br/&gt;+ totalCountForAdmin(Page): int&lt;br/&gt;+ voteDelete(int): void&lt;br/&gt;+ voteEdit(Vote): void&lt;br/&gt;+ voteAnswerEdit(VoteList): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-1990" y="208" width="291" height="606" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;VoteUser&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getUno(): int&lt;br/&gt;+ toString(): String&lt;br/&gt;+ getVno(): int&lt;br/&gt;+ getLno(): int&lt;br/&gt;+ getAuthor(): String&lt;br/&gt;+ hashCode(): int&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ setUno(int): void&lt;br/&gt;+ setVno(int): void&lt;br/&gt;+ setLno(int): void&lt;br/&gt;+ setAuthor(String): void&lt;br/&gt;+ equals(Object): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-1178" y="208" width="209" height="307" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-13" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=0.000;exitY=0.535;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-8" target="oyYEWW1cMjYgj1d-RSy1-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1139" y="533" />
+              <mxPoint x="-1139" y="818" />
+              <mxPoint x="-1519" y="818" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-14" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=0.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-8" target="oyYEWW1cMjYgj1d-RSy1-6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-575" y="186" />
+              <mxPoint x="-1295" y="186" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-15" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;strokeColor=#6c8ebf;exitX=0.552;exitY=0.000;exitDx=0;exitDy=0;entryX=0.552;entryY=1.000;entryDx=0;entryDy=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-8" target="oyYEWW1cMjYgj1d-RSy1-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-16" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=0.000;exitY=0.560;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-8" target="oyYEWW1cMjYgj1d-RSy1-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-850" y="547" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-17" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=0.500;exitY=1.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-8" target="oyYEWW1cMjYgj1d-RSy1-12" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-575" y="839" />
+              <mxPoint x="-1073" y="839" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-18" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=1.000;exitY=0.500;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-11" target="oyYEWW1cMjYgj1d-RSy1-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1642" y="511" />
+              <mxPoint x="-1642" y="818" />
+              <mxPoint x="-1519" y="818" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-19" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=0.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-11" target="oyYEWW1cMjYgj1d-RSy1-6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1845" y="186" />
+              <mxPoint x="-1296" y="186" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-20" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=0.448;exitY=1.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-11" target="oyYEWW1cMjYgj1d-RSy1-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1860" y="854" />
+              <mxPoint x="-996" y="854" />
+              <mxPoint x="-996" y="548" />
+              <mxPoint x="-850" y="547" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-21" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;strokeColor=#6c8ebf;exitX=0.448;exitY=0.000;exitDx=0;exitDy=0;entryX=0.448;entryY=1.000;entryDx=0;entryDy=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-11" target="oyYEWW1cMjYgj1d-RSy1-10" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-22" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=open;endSize=12;strokeColor=#6c8ebf;exitX=0.500;exitY=1.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;endFill=0;fillColor=#dae8fc;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-11" target="oyYEWW1cMjYgj1d-RSy1-12" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1845" y="839" />
+              <mxPoint x="-1073" y="839" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1326.5000000000002" y="116" as="sourcePoint" />
+            <mxPoint x="-1214" y="206" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-1326" y="161" />
+              <mxPoint x="-1214" y="161" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-47" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Member&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getRegdate(): String&lt;br/&gt;+ getTel(): String&lt;br/&gt;+ getId(): String&lt;br/&gt;+ getPw(): String&lt;br/&gt;+ setAddr2(String): void&lt;br/&gt;+ setRegdate(String): void&lt;br/&gt;+ setState(boolean): void&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getName(): String&lt;br/&gt;+ setPostcode(String): void&lt;br/&gt;+ getEmail(): String&lt;br/&gt;+ setName(String): void&lt;br/&gt;+ setId(String): void&lt;br/&gt;+ setTel(String): void&lt;br/&gt;+ getAddr1(): String&lt;br/&gt;+ getGrade(): int&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ getBirth(): String&lt;br/&gt;+ getPoint(): int&lt;br/&gt;+ setGrade(int): void&lt;br/&gt;+ setEmail(String): void&lt;br/&gt;+ getAddr2(): String&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ setBirth(String): void&lt;br/&gt;+ setPoint(int): void&lt;br/&gt;+ isState(): boolean&lt;br/&gt;+ setAddr1(String): void&lt;br/&gt;+ getPostcode(): String&lt;br/&gt;+ toString(): String&lt;br/&gt;+ setPw(String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="7" y="-1100" width="209" height="721" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-48" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=open;endFill=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-49" target="oyYEWW1cMjYgj1d-RSy1-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="-935" />
+              <mxPoint x="240" y="-760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-49" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MemberController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ memberList(Model): String&lt;br/&gt;+ memberGet(Model): String&lt;br/&gt;+ type(): String&lt;br/&gt;+ editForm(HttpServletRequest, Model): String&lt;br/&gt;+ memberInsert(Member, Model): String&lt;br/&gt;+ memberUpdate(HttpServletRequest, Model): String&lt;br/&gt;+ memberDelete(String, HttpSession, Model): String&lt;br/&gt;+ term(): String&lt;br/&gt;+ idCheck(HttpServletRequest, HttpServletResponse): void&lt;br/&gt;+ logout(HttpServletRequest, Model): String&lt;br/&gt;+ login(String, String, Model): String&lt;br/&gt;+ insertForm(HttpServletRequest, Model): String&lt;br/&gt;+ loginForm(HttpServletRequest, Model): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="253" y="-1100" width="404" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-50" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;MemberDAO&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ memberUpdatePoint(Member): void&lt;br/&gt;+ memberGet(String): Member&lt;br/&gt;+ memberList(): List&amp;lt;Member&amp;gt;&lt;br/&gt;+ login(String): Member&lt;br/&gt;+ memberUpdate(Member): void&lt;br/&gt;+ memberCount(): int&lt;br/&gt;+ memberInsert(Member): void&lt;br/&gt;+ memberDelete(String): void&lt;br/&gt;+ idcheck(String): Member&lt;br/&gt;+ getMemberId(): List&amp;lt;Member&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="-300" y="-1100" width="269" height="261" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-51" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;endArrow=open;endFill=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-52" target="oyYEWW1cMjYgj1d-RSy1-47" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-52" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MemberDAOImpl&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ memberCount(): int&lt;br/&gt;+ memberInsert(Member): void&lt;br/&gt;+ memberGet(String): Member&lt;br/&gt;+ memberUpdate(Member): void&lt;br/&gt;+ idcheck(String): Member&lt;br/&gt;+ getMemberId(): List&amp;lt;Member&amp;gt;&lt;br/&gt;+ memberList(): List&amp;lt;Member&amp;gt;&lt;br/&gt;+ memberUpdatePoint(Member): void&lt;br/&gt;+ login(String): Member&lt;br/&gt;+ memberDelete(String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="-300" y="-789" width="269" height="261" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-53" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-54" target="oyYEWW1cMjYgj1d-RSy1-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="-740" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="464" y="-680" />
+              <mxPoint x="464" y="-740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-54" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;MemberService&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ memberList(): List&amp;lt;Member&amp;gt;&lt;br/&gt;+ getMemberId(): List&amp;lt;Member&amp;gt;&lt;br/&gt;+ memberGet(String): Member&lt;br/&gt;+ memberInsert(Member): void&lt;br/&gt;+ login(String): Member&lt;br/&gt;+ memberUpdate(Member): void&lt;br/&gt;+ memberUpdatePoint(Member): void&lt;br/&gt;+ memberDelete(String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="712" y="-835" width="269" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-55" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MemberServiceImpl&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ memberGet(String): Member&lt;br/&gt;+ memberUpdate(Member): void&lt;br/&gt;+ getMemberId(): List&amp;lt;Member&amp;gt;&lt;br/&gt;+ memberInsert(Member): void&lt;br/&gt;+ memberList(): List&amp;lt;Member&amp;gt;&lt;br/&gt;+ memberUpdatePoint(Member): void&lt;br/&gt;+ login(String): Member&lt;br/&gt;+ memberDelete(String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="712" y="-1100" width="269" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-56" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-52" target="oyYEWW1cMjYgj1d-RSy1-50" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oyYEWW1cMjYgj1d-RSy1-57" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;exitX=0.500;exitY=1.000;exitDx=0;exitDy=0;entryX=0.500;entryY=0.000;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="oyYEWW1cMjYgj1d-RSy1-55" target="oyYEWW1cMjYgj1d-RSy1-54" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;endSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="j7GHSvLHXPp4fJ-UUmGe-2" target="j7GHSvLHXPp4fJ-UUmGe-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;BoardDAO&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ boardList(Page): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardUpdate(Board): void&lt;br/&gt;+ boardForMain(String): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardListCount(Page): int&lt;br/&gt;+ boardDetail(int): BoardVo&lt;br/&gt;+ boardInsert(Board): void&lt;br/&gt;+ boardDetailLast(): BoardVo&lt;br/&gt;+ boardDelete(int): void&lt;br/&gt;+ boardUpdateVisited(int): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-1587" y="-1140" width="280" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;BoardDAOImpl&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ boardDelete(int): void&lt;br/&gt;+ boardList(Page): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardDetailLast(): BoardVo&lt;br/&gt;+ boardListCount(Page): int&lt;br/&gt;+ boardDetail(int): BoardVo&lt;br/&gt;+ boardUpdate(Board): void&lt;br/&gt;+ boardInsert(Board): void&lt;br/&gt;+ boardForMain(String): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardUpdateVisited(int): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-1581" y="-816" width="280" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;endSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="j7GHSvLHXPp4fJ-UUmGe-5" target="j7GHSvLHXPp4fJ-UUmGe-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;BoardService&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ boardForMain(String): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardDelete(int): void&lt;br/&gt;+ boardListCount(Page): int&lt;br/&gt;+ boardDetail(int): BoardVo&lt;br/&gt;+ boardDetailLast(): BoardVo&lt;br/&gt;+ boardUpdate(Board): void&lt;br/&gt;+ boardInsert(Board): void&lt;br/&gt;+ boardList(Page): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardUpdateVisited(int): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-1255" y="-1140" width="280" height="254" as="geometry" />
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;BoardServiceImpl&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ boardForMain(String): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardUpdate(Board): void&lt;br/&gt;+ boardList(Page): List&amp;lt;BoardVo&amp;gt;&lt;br/&gt;+ boardUpdateVisited(int): void&lt;br/&gt;+ boardDelete(int): void&lt;br/&gt;+ boardDetail(int): BoardVo&lt;br/&gt;+ boardInsert(Board): void&lt;br/&gt;+ boardListCount(Page): int&lt;br/&gt;+ boardDetailLast(): BoardVo&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-1255" y="-810" width="280" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NoticeController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ noticeInsert(HttpServletRequest, Model): String&lt;br/&gt;+ noticeUpload(HttpServletRequest, Model): String&lt;br/&gt;+ noticeDelete(int, Model): String&lt;br/&gt;+ noticeDetail(int, Model): String&lt;br/&gt;+ noticeList(HttpServletRequest, Model): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-905" y="-1092" width="345" height="159" as="geometry" />
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-8" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;strokeColor=#82b366;exitX=0.477;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;fillColor=#d5e8d4;" edge="1" parent="1" source="j7GHSvLHXPp4fJ-UUmGe-3" target="j7GHSvLHXPp4fJ-UUmGe-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j7GHSvLHXPp4fJ-UUmGe-9" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=1;startArrow=none;endArrow=block;endSize=12;strokeColor=#82b366;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#d5e8d4;" edge="1" parent="1" source="j7GHSvLHXPp4fJ-UUmGe-6" target="j7GHSvLHXPp4fJ-UUmGe-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1115" y="-846" />
+              <mxPoint x="-1115" y="-846" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
